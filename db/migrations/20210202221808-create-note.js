@@ -8,14 +8,19 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
+      note: {
+        type: Sequelize.TEXT,
+        allowNull: false,
+      },
       task_id: {
         type: Sequelize.INTEGER,
         allowNull: false,
         references: { model: "Tasks"}
       },
-      note: {
-        type: Sequelize.TEXT,
+      user_id: {
+        type: Sequelize.INTEGER,
         allowNull: false,
+        references: { model: "Users" }
       },
       createdAt: {
         allowNull: false,

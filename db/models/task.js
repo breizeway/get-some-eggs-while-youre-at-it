@@ -7,7 +7,6 @@ module.exports = (sequelize, DataTypes) => {
     priority: DataTypes.INTEGER,
     estimate: DataTypes.INTEGER,
     list_id: DataTypes.INTEGER,
-    location_id: DataTypes.INTEGER,
     user_id: DataTypes.INTEGER,
     give_to_id: DataTypes.INTEGER
   }, {});
