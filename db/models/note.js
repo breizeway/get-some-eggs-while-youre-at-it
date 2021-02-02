@@ -1,7 +1,6 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
   const Note = sequelize.define('Note', {
-    id: DataTypes.INTEGER,
     task_id: DataTypes.INTEGER,
     note: DataTypes.TEXT
   }, {});

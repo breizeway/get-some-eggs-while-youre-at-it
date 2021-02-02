@@ -9,7 +9,8 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       name: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING(100),
+        allowNull: false,
       },
       start_date: {
         type: Sequelize.DATE
@@ -24,16 +25,18 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       list_id: {
-        type: Sequelize.INTEGER
-      },
-      location_id: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        references: { model: "Lists" },
+        allowNull: false,
       },
       user_id: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        references: { model: "Users" },
+        allowNull: false,
       },
       give_to_id: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        references: { model: "Users" },
       },
       createdAt: {
         allowNull: false,
