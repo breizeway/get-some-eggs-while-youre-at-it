@@ -23,7 +23,7 @@ const userSignupValidation = [
     .withMessage("Please provide a Password"),
   check('confirmPassword')
     .exists({ checkFalsy: true })
-    .withMessage("Please provide a Password")
+    .withMessage("Please confirm your Password")
     .custom((value, { req }) => value === req.body.password)
     .withMessage("Passwords must match"),
   handleValidationErrors
