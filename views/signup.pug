@@ -2,8 +2,16 @@ extends layout
 block content
   form(action='/users' method='post')
     input(type='hidden' name='_csrf' value= csrfToken)
-    label Email
-      input(type='text' name='email' placeholder='Email')
-    label Password
-      input(type='text' name='password' placeholder='Password')
+    div
+      label First Name
+        input(type='text' name='firstName' placeholder='First Name' required)
+    div
+      label Last Name
+        input(type='text' name='lastName' placeholder='Last Name' required)
+    div
+      label Email
+        input(type='text' name='email' placeholder='Email' required)
+    div
+      label Password
+        input(type='password' name='password' placeholder='Password' required)
     button(type='submit') Sign up
