@@ -1,0 +1,19 @@
+:root {
+	--yellow: #FFD600;
+	--h1:#2d1000;
+}
+
+h1 {
+  color: var(--h1);
+}
+
+body {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+form {
+	display: flex;
+	flex-direction: column;
+}
