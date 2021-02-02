@@ -3,18 +3,18 @@ block content
   form(action='/users' method='post')
     input(type='hidden' name='_csrf' value= csrfToken)
     div.form__div
-      label First Name
-        input(type='text' name='firstName' placeholder='First Name' required)
+      div: label First Name
+      div: input(type='text' name='firstName' placeholder='First Name' required)
     div.form__div
-      label Last Name
-        input(type='text' name='lastName' placeholder='Last Name' required)
+      div: label Last Name
+      input(type='text' name='lastName' placeholder='Last Name' required)
     div.form__div
-      label Email
-        input(type='text' name='email' placeholder='Email' required)
+      div: label Email
+      input(type='text' name='email' placeholder='Email' required)
     div.form__div
-      label Password
-        input(type='password' id='password' name='password' placeholder='Password' required)
+      div: label Password
+      input(type='password' id='password' name='password' placeholder='Password' required)
     div.form__div
-      label Confirm Password
-        input(type='password' id='confirmPassword' name='confirmPassword' placeholder='Confirm Password' required)
+      div: label Confirm Password
+      input(type='password' id='confirmPassword' name='confirmPassword' placeholder='Confirm Password' required)
     button(type='submit') Sign up
