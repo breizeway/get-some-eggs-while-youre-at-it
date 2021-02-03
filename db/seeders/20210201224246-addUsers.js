@@ -27,6 +27,22 @@ module.exports = {
         password: await bcrypt.hash('password3', 10),
         createdAt: new Date(),
         updatedAt: new Date()
+      },
+      {
+        firstName: 'Alec',
+        lastName: 'Keeler',
+        email: 'alec_the_dood@email.com',
+        password: await bcrypt.hash('password4', 10),
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        firstName: 'Brian',
+        lastName: 'Crawford',
+        email: 'brian_boi@email.com',
+        password: await bcrypt.hash('password5', 10),
+        createdAt: new Date(),
+        updatedAt: new Date()
       }
     ], {});
   },
