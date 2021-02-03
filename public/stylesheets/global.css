@@ -1,0 +1,21 @@
+:root {
+	--yellow: #FFD600;
+	--h1:#2d1000;
+}
+
+h1 {
+  color: var(--h1);
+}
+
+html {
+	height: 100%;
+	width: 100%;
+}
+
+body {
+	height: 100%;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
