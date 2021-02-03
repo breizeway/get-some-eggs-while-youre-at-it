@@ -5,7 +5,8 @@ module.exports = (sequelize, DataTypes) => {
     contactId: DataTypes.INTEGER
   }, {});
   Contact.associate = function(models) {
-    // associations can be defined here
+    Contact.belongsTo(models.User, { foreignKey: 'userId' });
+    Contact.belongsTo(models.User, { foreignKey: 'contactId' });
   };
   return Contact;
 };

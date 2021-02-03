@@ -5,7 +5,13 @@ module.exports = (sequelize, DataTypes) => {
     userId: DataTypes.INTEGER
   }, {});
   Tag.associate = function(models) {
-    // associations can be defined here
+    const columnMapping = {
+      through: 'TaskToTag',
+      foreignKey: 'tagId',
+      otherKey: 'taskId'
+    }
+    Tag.belongsToMany(models.Task, columnMapping);
+    Tag.belongsTo(models.User, { foreignKey: 'userId' });
   };
   return Tag;
 };
