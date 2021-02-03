@@ -1,11 +1,11 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
-  const UserToContact = sequelize.define('UserToContact', {
-    user_id: DataTypes.INTEGER,
-    contact_id: DataTypes.INTEGER
+  const Contact = sequelize.define('Contact', {
+    userId: DataTypes.INTEGER,
+    contactId: DataTypes.INTEGER
   }, {});
-  UserToContact.associate = function(models) {
+  Contact.associate = function(models) {
     // associations can be defined here
   };
-  return UserToContact;
+  return Contact;
 };

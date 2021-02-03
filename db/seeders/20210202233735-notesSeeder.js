@@ -3,11 +3,11 @@
 module.exports = {
   up: (queryInterface, Sequelize) => {
     return queryInterface.bulkInsert('Notes', [
-      { note: 'This is a note here.', task_id: 1, user_id: 1, createdAt: new Date(), updatedAt: new Date() },
-      { note: 'This is a note here.', task_id: 4, user_id: 2, createdAt: new Date(), updatedAt: new Date() },
-      { note: 'This is a note here.', task_id: 7, user_id: 3, createdAt: new Date(), updatedAt: new Date() },
-      { note: 'This is a note here.', task_id: 11, user_id: 4, createdAt: new Date(), updatedAt: new Date() },
-      { note: 'This is a note here.', task_id: 15, user_id: 5, createdAt: new Date(), updatedAt: new Date() },
+      { note: 'This is a note here.', taskId: 1, userId: 1, createdAt: new Date(), updatedAt: new Date() },
+      { note: 'This is a note here.', taskId: 4, userId: 2, createdAt: new Date(), updatedAt: new Date() },
+      { note: 'This is a note here.', taskId: 7, userId: 3, createdAt: new Date(), updatedAt: new Date() },
+      { note: 'This is a note here.', taskId: 11, userId: 4, createdAt: new Date(), updatedAt: new Date() },
+      { note: 'This is a note here.', taskId: 15, userId: 5, createdAt: new Date(), updatedAt: new Date() },
     ], {});
   },
 

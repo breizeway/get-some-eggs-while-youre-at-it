@@ -12,10 +12,10 @@ module.exports = {
         type: Sequelize.STRING(100),
         allowNull: false,
       },
-      start_date: {
+      startDate: {
         type: Sequelize.DATE
       },
-      due_date: {
+      dueDate: {
         type: Sequelize.DATE
       },
       priority: {
@@ -24,17 +24,17 @@ module.exports = {
       estimate: {
         type: Sequelize.INTEGER
       },
-      list_id: {
+      listId: {
         type: Sequelize.INTEGER,
         references: { model: "Lists" },
         allowNull: false,
       },
-      user_id: {
+      userId: {
         type: Sequelize.INTEGER,
         references: { model: "Users" },
         allowNull: false,
       },
-      give_to_id: {
+      giveToId: {
         type: Sequelize.INTEGER,
         references: { model: "Users" },
       },
