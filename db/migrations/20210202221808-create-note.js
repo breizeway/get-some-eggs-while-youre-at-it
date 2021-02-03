@@ -12,12 +12,12 @@ module.exports = {
         type: Sequelize.TEXT,
         allowNull: false,
       },
-      task_id: {
+      taskId: {
         type: Sequelize.INTEGER,
         allowNull: false,
         references: { model: "Tasks"}
       },
-      user_id: {
+      userId: {
         type: Sequelize.INTEGER,
         allowNull: false,
         references: { model: "Users" }
