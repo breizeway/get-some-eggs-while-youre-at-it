@@ -2,25 +2,27 @@
 
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    /*
-      Add altering commands here.
-      Return a promise to correctly handle asynchronicity.
+    return queryInterface.bulkInsert('Lists', [
+      { name: 'Inbox', user_id: 1, createdAt: new Date(), updatedAt: new Date() },
+      { name: 'Work', user_id: 1, createdAt: new Date(), updatedAt: new Date() },
+      { name: 'Personal', user_id: 1, createdAt: new Date(), updatedAt: new Date() },
+      { name: 'Inbox', user_id: 2, createdAt: new Date(), updatedAt: new Date() },
+      { name: 'Work', user_id: 2, createdAt: new Date(), updatedAt: new Date() },
+      { name: 'Personal', user_id: 2, createdAt: new Date(), updatedAt: new Date() },
+      { name: 'Inbox', user_id: 3, createdAt: new Date(), updatedAt: new Date() },
+      { name: 'Work', user_id: 3, createdAt: new Date(), updatedAt: new Date() },
+      { name: 'Personal', user_id: 3, createdAt: new Date(), updatedAt: new Date() },
+      { name: 'Inbox', user_id: 4, createdAt: new Date(), updatedAt: new Date() },
+      { name: 'Work', user_id: 4, createdAt: new Date(), updatedAt: new Date() },
+      { name: 'Personal', user_id: 4, createdAt: new Date(), updatedAt: new Date() },
+      { name: 'Inbox', user_id: 5, createdAt: new Date(), updatedAt: new Date() },
+      { name: 'Work', user_id: 5, createdAt: new Date(), updatedAt: new Date() },
+      { name: 'Personal', user_id: 5, createdAt: new Date(), updatedAt: new Date() },
 
-      Example:
-      return queryInterface.bulkInsert('People', [{
-        name: 'John Doe',
-        isBetaMember: false
-      }], {});
-    */
+    ], {});
   },
 
   down: (queryInterface, Sequelize) => {
-    /*
-      Add reverting commands here.
-      Return a promise to correctly handle asynchronicity.
-
-      Example:
-      return queryInterface.bulkDelete('People', null, {});
-    */
+    return queryInterface.bulkDelete('Lists', null, {});
   }
 };
