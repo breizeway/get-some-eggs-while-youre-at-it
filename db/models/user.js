@@ -7,7 +7,12 @@ module.exports = (sequelize, DataTypes) => {
     password: DataTypes.STRING
   }, {});
   User.associate = function(models) {
-    // associations can be defined here
+    const columnMapping = {
+      through: "Contact",
+      foreignKey: "userId",
+      otherKey: "contactId"
+    }
+    User.belongsToMany(models.User, columnMapping)
   };
   return User;
 };
