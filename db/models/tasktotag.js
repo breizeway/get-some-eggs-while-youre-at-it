@@ -5,7 +5,8 @@ module.exports = (sequelize, DataTypes) => {
     tagId: DataTypes.INTEGER
   }, {});
   TaskToTag.associate = function(models) {
-    // associations can be defined here
+    TaskToTag.belongsTo(models.Task, { foreignKey: 'taskId' });
+    TaskToTag.belongsTo(models.Tag, { foreignKey: 'tagId' });
   };
   return TaskToTag;
 };

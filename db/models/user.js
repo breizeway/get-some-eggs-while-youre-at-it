@@ -12,7 +12,11 @@ module.exports = (sequelize, DataTypes) => {
       foreignKey: "userId",
       otherKey: "contactId"
     }
-    User.belongsToMany(models.User, columnMapping)
+    User.belongsToMany(models.User, columnMapping);
+    User.hasMany(models.List, { foreignKey: 'userId' });
+    User.hasMany(models.Note, { foreignKey: 'userId' });
+    User.hasMany(models.Tag, { foreignKey: 'userId' });
+    User.hasMany(models.Task, { foreignKey: 'userId' });
   };
   return User;
 };
