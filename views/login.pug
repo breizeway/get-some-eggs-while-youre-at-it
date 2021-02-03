@@ -2,6 +2,9 @@ extends layout
 block content
   form(action='/users/login' method='post')
     input(type='hidden' name='_csrf' value=csrfToken)
-    input(type='text' name='email' placeholder='email')
-    input(type='password' name='password' placeholder='password')
-    button(type='submit') Login
+    div.form__div-title: h2 Log In
+    div.form__div-label: label Email
+    div.form__div-input: input(type='text' name='email' placeholder='example@email.com')
+    div.form__div-label: label Password
+    div.form__div-input: input(type='password' name='password')
+    div.form__div-button: button(type='submit') Login

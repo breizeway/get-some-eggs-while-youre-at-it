@@ -2,19 +2,15 @@ extends layout
 block content
   form(action='/users' method='post')
     input(type='hidden' name='_csrf' value= csrfToken)
-    div.form__div
-      div: label First Name
-      div: input(type='text' name='firstName' placeholder='First Name' required)
-    div.form__div
-      div: label Last Name
-      input(type='text' name='lastName' placeholder='Last Name' required)
-    div.form__div
-      div: label Email
-      input(type='text' name='email' placeholder='Email' required)
-    div.form__div
-      div: label Password
-      input(type='password' id='password' name='password' placeholder='Password' required)
-    div.form__div
-      div: label Confirm Password
-      input(type='password' id='confirmPassword' name='confirmPassword' placeholder='Confirm Password' required)
-    button(type='submit') Sign up
+    div.form__div-title: h2 Sign Up
+    div.form__div-label: label First Name
+    div.form__div-input: input(type='text' name='firstName' required)
+    div.form__div-label: label Last Name
+    div.form__div-input: input(type='text' name='lastName' required)
+    div.form__div-label: label Email
+    div.form__div-input: input(type='text' name='email' placeholder='example@email.com' required)
+    div.form__div-label: label Password
+    div.form__div-input: input(type='password' name='password' required)
+    div.form__div-label: label Confirm Password
+    div.form__div-input: input(type='password' name='confirmPassword' required)
+    div.form__div-button: button(type='submit') Sign up
