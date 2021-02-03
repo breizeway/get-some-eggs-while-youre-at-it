@@ -5,4 +5,29 @@ html
         title="Express Starter App"
         link(rel='stylesheet' href='/stylesheets/stylesheets.css')
   body
+    .navbar
+      .navbar__namediv
+        span.nabvar__namespan What needs to be done today #{userName}...
+      .navbar__searchdiv
+        form(action='/search'  method='get' class='navbar__searchform')
+          input(class='navbar__searchinput' type='text' placeholder='Enter search here...' required)
+          button(class='navbar__searchbutton' type='sumbit') Search
+      .navbar__searcherror
+        ul
+      nav.navbar_nav
+        a(href='/user/logout') Logout
+    .leftcontainer
+      nav.leftcontainer__nav
+        ul.leftcontainer__ul
+          li: a(href='/list/inbox') Inbox
+          li: a(href='/task') All
+          li: a(href='/list/work') Work
+          li: a(href='/list/personal') Personal
+          each list in lists
+            li: a(href='/list/#{list.id}')= list.name
+      .leftcontainer__listdiv
+        form(action='/list' method='post' class='leftcontainer__listform')
+          input(class='leftcontainer__listinput' type='text' placeholder='Create a new list...' required)
+          button(type='submit' class='leftcontainer__listbutton') Create
+
     block content
