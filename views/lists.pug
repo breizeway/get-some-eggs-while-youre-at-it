@@ -1,0 +1,14 @@
+extends layout
+block content
+  div
+    table
+      thead
+        tr
+          th= Task
+      tbody
+        each task in tasks
+          tr
+            td= task.name
+          
+      
+    
