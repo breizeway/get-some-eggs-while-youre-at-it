@@ -1,11 +1,13 @@
 const { List } = require('../db/models')
 
 const byName = async (userId, name) => {
-    return await List.findAll({
+    const list = await List.findAll({
         where: {
-            userId, name,
+            userId,
+            name,
         }
     })
+    return list[0].id;
 }
 
 const all = async (userId) => {
