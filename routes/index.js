@@ -3,7 +3,7 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('layout', { title: 'a/A Express Skeleton Home' });
+  res.redirect('/users/signup');
 });
 
 module.exports = router;

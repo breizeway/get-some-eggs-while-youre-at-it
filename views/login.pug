@@ -1,5 +1,8 @@
 extends layout
 block content
+  div
+    ul
+      li: a(href='/users/signup') Sign up
   form(action='/users/login' method='post')
     input(type='hidden' name='_csrf' value=csrfToken)
     div.form__div-title: h2 Log In
