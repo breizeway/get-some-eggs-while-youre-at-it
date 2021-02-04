@@ -14,15 +14,15 @@ router.get('/', csrfProtection, asyncHandler( async(req, res) => {
     res.redirect(`/lists/${listId}`);
 }));
 
-router.post('/', csrfProtection, asyncHandler( async(req, res) => {
-    const name = req.body.name;
-    const user = req.session.user;
-    await listData.create(user.id, name);
-    res.redirect('/lists');
-}));
+// router.post('/', csrfProtection, asyncHandler( async(req, res) => {
+//     const name = req.body.name;
+//     const user = req.session.user;
+//     res.redirect('/lists');
+// }));
 
 router.get('/:id', csrfProtection, asyncHandler(async(req, res) => {
     const listId = req.params.id
+    const user = req.session.user
     const lists = await listData.all(user.id)
     const tasks = await taskData.byList(listId)
     res.render('lists', { tasks, lists, user, csrfToken: req.csrfToken() })

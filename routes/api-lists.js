@@ -7,8 +7,10 @@ const router = express.Router();
 const { asyncHandler, csrfProtection, handleValidationErrors } = require('./utils');
 const { listData, taskData } = require('../data')
 
-router.put('/', asyncHandler( async(req, res) => {
+router.post('/', asyncHandler( async(req, res) => {
   const user = req.session.user
+  const name = req.body.name
+  await listData.create(user.id, name);
   const allLists = await listData.all(user.id);
   const data = allLists.map(list => ({
     listName: list.name,
@@ -16,3 +18,6 @@ router.put('/', asyncHandler( async(req, res) => {
   }));
   res.json(data);
 }));
+
+
+module.exports = router;

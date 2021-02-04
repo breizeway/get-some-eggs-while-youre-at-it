@@ -4,6 +4,7 @@ html
       block head
         title="Express Starter App"
         link(rel='stylesheet' href='/stylesheets/stylesheets.css')
+        script(src='/javascripts/left-container.js')
   body
     .navbar
       .navbar__name-div
@@ -28,7 +29,7 @@ html
             //- each list in lists
               li: a(href='/list/#{list.id}')= list.name
           .left-container__add-list-div
-            form(action='/lists' method='post' class='left-container__add-list-form')
+            form(class='left-container__add-list-form')
               input(type='hidden' name='_csrf' value=csrfToken)
               input(class='left-container__list-input' type='text' name='name' placeholder='Create a new list...' required)
               button(type='submit' class='left-container__list-button') Create

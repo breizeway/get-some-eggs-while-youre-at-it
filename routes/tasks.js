@@ -12,3 +12,5 @@ const { listData, taskData } = require('../data');
 router.post('/', csrfProtection, asyncHandler(async (req, res) => {
 
 }));
+
+module.exports = router;
