@@ -14,4 +14,5 @@ router.put('/', asyncHandler( async(req, res) => {
     listName: list.name,
     href: `/lists/${list.id}`
   }));
+  res.json(data);
 }));
