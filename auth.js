@@ -19,7 +19,7 @@ const requireAuth = (req, res, next) => {
           res.locals.user = user;
           next();
         }
-      } catch (err) {l
+      } catch (err) {
         res.locals.authenticated = false;
         next(err);
       }
