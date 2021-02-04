@@ -11,7 +11,7 @@ const { listData, taskData } = require('../data')
 router.get('/', csrfProtection, asyncHandler( async(req, res) => {
     const user = req.session.user
     const listId = await listData.byName(user.id, 'Inbox')
-    res.redirect(`/list/${listId}`);
+    res.redirect(`/lists/${listId}`);
 }));
 
 router.get('/:id', csrfProtection, asyncHandler(async(req, res) => {
