@@ -12,8 +12,10 @@
 .navbar__search-div {
   grid-area: search;
 }
-.navbar__navbar_nav {
+.navbar__nav {
   grid-area: nav;
+  display: flex;
+  justify-content: flex-end;
 }
 
 .navbar__search-form {
@@ -35,11 +37,6 @@
 
 .navbar__search-button {
   width: 20%;
-}
-
-.navbar__nav {
-  display: flex;
-  justify-content: flex-end;
 }
 
 .left-container {
