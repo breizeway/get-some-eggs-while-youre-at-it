@@ -1,6 +1,7 @@
 :root {
 	--yellow: #FFD600;
 	--h1:#2d1000;
+	--left-container-width: 200px;
 }
 
 h1 {
@@ -10,12 +11,20 @@ h1 {
 html {
 	height: 100%;
 	width: 100%;
+	background-color: #111111;
+	color: lightgray;
 }
 
 body {
 	height: 100%;
 	width: 100%;
-	display: flex;
-	justify-content: center;
-	align-items: center;
+	display: grid;
+	grid-template: 40px auto / var(--left-container-width) 1fr;
+	grid-template-areas:
+			"navbar navbar"
+			"left-container main-container";
+}
+
+div {
+	border: 1px solid gray;
 }

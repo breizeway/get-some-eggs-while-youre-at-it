@@ -7,12 +7,12 @@ module.exports = (sequelize, DataTypes) => {
     password: DataTypes.STRING
   }, {});
   User.associate = function(models) {
-    const columnMapping = {
-      through: "Contact",
-      foreignKey: "userId",
-      otherKey: "contactId"
-    }
-    User.belongsToMany(models.User, columnMapping);
+    // const columnMapping = {
+    //   through: "Contact",
+    //   foreignKey: "userId",
+    //   otherKey: "contactId"
+    // }
+    // User.belongsToMany(models.User, columnMapping);
     User.hasMany(models.List, { foreignKey: 'userId' });
     User.hasMany(models.Note, { foreignKey: 'userId' });
     User.hasMany(models.Tag, { foreignKey: 'userId' });
