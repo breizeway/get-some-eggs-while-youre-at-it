@@ -50,9 +50,9 @@ router.get('/signup', csrfProtection, asyncHandler(async (req, res) => {
   res.render('signup', { csrfToken: req.csrfToken() })
 }));
 
-router.post('/', 
-  userSignupValidation, 
-  csrfProtection, 
+router.post('/',
+  userSignupValidation,
+  csrfProtection,
   asyncHandler(async (req, res) => {
   const { firstName, lastName, email, password } = req.body;
   const hashedPassword = await bcrypt.hash(password, 10);
@@ -79,7 +79,7 @@ router.post(
       req.session.user = { id: user.id, email: user.email };
       console.log('session after login', req.session);
       // redirect to index
-      res.redirect('/');
+      res.redirect('/lists');
     } else {
       res.render('login', { csrfToken: req.csrfToken(), errors: ['Invalid credentials, try again!'] });
     }
