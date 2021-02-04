@@ -5,11 +5,22 @@ const csrf = require('csurf');
 const bcrypt = require('bcryptjs');
 const router = express.Router();
 const { asyncHandler, csrfProtection, handleValidationErrors } = require('./utils');
+const { listData, taskData } = require('../data')
 
 
-router.get('/', csrfProtection, asyncHandler((req, res) => {
-    const list = req.params
-    const tasks = getTasks(list)
-    res.render('lists', { csrfToken: req.csrfToken() });
+router.get('/', csrfProtection, asyncHandler( async(req, res) => {
+    const user = req.session.user
+    const listId = await listData.byName(user.id, 'Inbox')
+    res.redirect(`/list/${listId}`);
 }));
 
+router.get('/:id', csrfProtection, asyncHandler(async(req, res) => {
+    const listId = req.params.id
+    const user = req.session.user
+    const lists = await listData.all(user.id)
+    const tasks = await taskData.byList(listId)
+    res.render('lists', { tasks, user })
+}))
+
+
+module.exports = router

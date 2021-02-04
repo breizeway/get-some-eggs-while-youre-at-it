@@ -1,10 +1,13 @@
-const { Task, List } = require('../db/models/')
+const { Task } = require('../db/models')
 
 
-const byList = async list => {
+const byList = async (...listId) => {
     return await Task.findAll({
-        include: List
-    })
+        where: {
+          listId
+        }
+    });
 }
 
-console.log(byList('Inbox'))
+
+module.exports = { byList }
