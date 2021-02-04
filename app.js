@@ -11,6 +11,7 @@ const usersRouter = require('./routes/users');
 const listsRouter = require('./routes/lists');
 const apiListsRouter = require('./routes/api-lists');
 const tasksRouter = require('./routes/tasks');
+const { restoreUser } = require('./auth');
 
 const app = express();
 
@@ -38,6 +39,7 @@ app.use(
 // create Session table if it doesn't already exist
 store.sync();
 
+app.use(restoreUser);
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/lists', listsRouter)
