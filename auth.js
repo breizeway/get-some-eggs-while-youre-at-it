@@ -13,10 +13,10 @@ const { User } = require('./db/models');
     console.log(req.session);
 
     if (req.session.user) {
-      const { userId } = req.session.user;
+      const currUser = req.session.user;
 
       try {
-        const user = await User.findByPk(userId);
+        const user = await User.findByPk(currUser.id);
 
         if (user) {
           res.locals.authenticated = true;
@@ -33,4 +33,4 @@ const { User } = require('./db/models');
     }
   };
 
-  module.exports = { restoreUser, }
+  module.exports = { restoreUser }

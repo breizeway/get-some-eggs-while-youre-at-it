@@ -16,10 +16,9 @@ router.get('/', csrfProtection, asyncHandler( async(req, res) => {
 
 router.get('/:id', csrfProtection, asyncHandler(async(req, res) => {
     const listId = req.params.id
-    const user = req.session.user
     const lists = await listData.all(user.id)
     const tasks = await taskData.byList(listId)
-    res.render('lists', { tasks, user })
+    res.render('lists', { tasks })
 }))
 
 
