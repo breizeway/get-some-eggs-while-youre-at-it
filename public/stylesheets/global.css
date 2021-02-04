@@ -18,11 +18,6 @@ html {
 body {
 	height: 100%;
 	width: 100%;
-	display: grid;
-	grid-template: 40px auto / var(--left-container-width) 1fr;
-	grid-template-areas:
-			"navbar navbar"
-			"left-container main-container";
 }
 
 div {
