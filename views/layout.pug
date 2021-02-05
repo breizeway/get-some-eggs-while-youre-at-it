@@ -4,31 +4,34 @@ html
       block head
         title="Express Starter App"
         link(rel='stylesheet' href='/stylesheets/stylesheets.css')
+        script(src='/javascripts/left-container.js')
   body
     .navbar
       .navbar__name-div
-        span.navbar__name-span What needs to be done today #{user.firstName}?
+        span.navbar__name-span What needs to be done today?
       .navbar__search-div
         form(action='/search'  method='get' class='navbar__search-form')
+          input(type='hidden' name='_csrf' value=csrfToken)
           input(class='navbar__search-input' type='text' placeholder='Enter search here...' required)
-          button(class='navbar__search-button' type='sumbit') Search
+          button(class='navbar__search-button' type='submit') Search
         .navbar__search-error
           ul
-      nav.navbar_nav
-        a(href='/user/logout') Logout
+      nav.navbar__nav
+        a(href='') Logout
     .left-container
       nav.left-container__nav
         div.left-container__lists-div
           ul.left-container__category-ul
-            li: a(href='/list/inbox') Inbox
-            li: a(href='/task') All
+            li: a(href='/lists/inbox') Inbox
             li: a(href='/list/work') Work
-            li: a(href='/list/personal') Personal
-            //- each list in lists
-              li: a(href='/list/#{list.id}')= list.name
+            li: a(href='/lists/personal') Personal
+            li: a(href='/tasks') All
+              each list in lists
+                li: a(href='/list/#{list.id}')= list.name
           .left-container__add-list-div
-            form(action='/list' method='post' class='left-container__add-list-form')
-              input(class='left-container__list-input' type='text' placeholder='Create a new list...' required)
+            form(class='left-container__add-list-form')
+              input(type='hidden' name='_csrf' value=csrfToken)
+              input(class='left-container__list-input' type='text' name='name' placeholder='Create a new list...' required)
               button(type='submit' class='left-container__list-button') Create
     .main-container
       block content
