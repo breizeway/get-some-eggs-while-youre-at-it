@@ -3,9 +3,9 @@ window.addEventListener("load", (event) => {
     const taskDiv = document.querySelector(".main-container__tasks-list")
     taskForm.addEventListener("submit", async (event) => {
         event.preventDefault()
-        const formData = new FormData(listForm)
+        const formData = new FormData(taskForm)
         const name = formData.get('name')
 
- 
+        
     })
 })

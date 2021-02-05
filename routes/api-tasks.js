@@ -10,15 +10,10 @@ const { requireAuth } = require('../auth');
 
 router.use(requireAuth);
 
-router.get('/', csrfProtection, asyncHandler(async (req, res) => {
-    const user = req.session.user
-    const listId = await taskData.byList(1)
-    
-   
-}));
-
 router.post('/', asyncHandler(async (req, res) => {
     const user = req.session.user
     const { name } = req.body
-  
+    await taskData.create(name)
 }));
+
+module.exports = router 
