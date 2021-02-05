@@ -21,7 +21,7 @@ router.get('/:id', csrfProtection, asyncHandler(async(req, res) => {
     const user = req.session.user
     const lists = await listData.all(user.id)
     const tasks = await taskData.byList(listId)
-    res.render('lists', { tasks, lists, csrfToken: req.csrfToken() })
+    res.render('tasks', { tasks, lists, csrfToken: req.csrfToken() })
 }));
 
 
