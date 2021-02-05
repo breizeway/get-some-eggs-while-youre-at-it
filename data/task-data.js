@@ -9,5 +9,10 @@ const byList = async (...listId) => {
     });
 }
 
+const byID = async (taskId) => {
+  return await Task.findByPk(taskId)
+}
+
+
 const create = async (listId, name) => await Task.create({ listId, name });
 module.exports = { byList }
