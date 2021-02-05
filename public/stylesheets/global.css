@@ -1,6 +1,6 @@
 :root {
 	--yellow: #FFD600;
-	--h1:#2d1000;
+	--h1:#150700;
 	--left-container-width: 200px;
 }
 
@@ -10,16 +10,12 @@ h1 {
 
 html {
 	height: 100%;
-	width: 100%;
+	width: 100%;/*
 	background-color: #111111;
-	color: lightgray;
+	color: lightgray;*/
 }
 
 body {
 	height: 100%;
 	width: 100%;
-}
-
-div {
-	border: 1px solid gray;
 }

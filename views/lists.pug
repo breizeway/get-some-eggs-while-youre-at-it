@@ -1,11 +1,10 @@
 extends navigation
 block main-container
-  div
-    table
-      thead
-        tr
-          th= Task
-      tbody
-        each task in tasks
-          tr
-            td= task.name
+  .main-container__tasks
+    form(action='/tasks' method='post' class='main-container__new-task')
+      input(type='hidden' name='_csrf' value=csrfToken)
+      input(type='text' placeholder='Create a new task...' name='name' required class='main-container__task-input')
+      button(type='submit' class='main-container__task-button') Add Task
+    ul.main-container__tasks-list
+      each task in tasks
+        li= task.name
