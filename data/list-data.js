@@ -19,5 +19,11 @@ const all = async userId => {
 
 const create = async (userId, name) => await List.create({ userId, name });
 
+const remove = async id => {
+    await List.delete({
+        where: id
+    });
+}
 
-module.exports = { byName, all, create }
+module.exports = { byName, all, create, remove }
+
