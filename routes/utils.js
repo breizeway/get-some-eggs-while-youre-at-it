@@ -20,10 +20,21 @@ const handleValidationErrors = (req, res, next) => {
 
 const convertListData = listData => {
     return listData.map(list => ({
-        id: `list_${list.id}`,
+        id: list.id,
+        htmlId: `list_${list.id}`,
         name: list.name,
         href: `/lists/${list.id}`
     }));
 }
 
-module.exports = { asyncHandler, csrfProtection, handleValidationErrors, convertListData };
+const convertTaskData = taskData => {
+    return taskData.map(task => ({
+        htmlId: `task_${task.id}`,
+        id: task.id,
+        name: task.name,
+        href: `/tasks/${task.id}`
+    }));
+}
+
+
+module.exports = { asyncHandler, csrfProtection, handleValidationErrors, convertListData, convertTaskData };
