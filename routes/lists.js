@@ -4,7 +4,7 @@ const { check } = require('express-validator');
 const csrf = require('csurf');
 const bcrypt = require('bcryptjs');
 const router = express.Router();
-const { asyncHandler, csrfProtection, handleValidationErrors, convertListData } = require('./utils');
+const { asyncHandler, csrfProtection, handleValidationErrors, convertListData, convertTaskData } = require('./utils');
 const { listData, taskData } = require('../data')
 const { requireAuth } = require('../auth');
 
@@ -21,7 +21,8 @@ router.get('/:id', csrfProtection, asyncHandler(async(req, res) => {
     const user = req.session.user
     let lists = await listData.all(user.id)
     lists = convertListData(lists)
-    const tasks = await taskData.byList(listId)
+    let tasks = await taskData.byList(listId)
+    tasks = convertTaskData(tasks)
     res.render('tasks', { tasks, lists, csrfToken: req.csrfToken() })
 }));
 
