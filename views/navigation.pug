@@ -15,17 +15,13 @@ block content
         .navbar__search-error
           ul
       nav.navbar__nav
-        a(href='/user/logout') Logout
+        a(href='/users/logout') Logout
     .left-container
       nav.left-container__nav
         div.left-container__lists-div
           ul.left-container__category-ul
-            li: a(href='/list/inbox') Inbox
-            li: a(href='/task') All
-            li: a(href='/list/work') Work
-            li: a(href='/list/personal') Personal
-              each list in lists
-                li: a(href='/lists/#{list.id}')= list.name
+            each list in lists
+              li: a(href='/lists/#{list.id}')= list.name
           .left-container__add-list-div
             form(class='left-container__add-list-form')
               input(class='left-container__list-input' name='name' type='text' placeholder='Create a new list...' required)
