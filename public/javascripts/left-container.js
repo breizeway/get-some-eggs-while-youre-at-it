@@ -1,6 +1,8 @@
 window.addEventListener("load", (event)=>{
   const listForm = document.querySelector(".left-container__add-list-form")
-  const listDiv = document.querySelector(".left-container__category-div")
+  const containerDiv = document.querySelector(".left-container__list-row-container")
+  const input = document.querySelector(".left-container__list-input")
+
   listForm.addEventListener("submit", async (event) => {
     event.preventDefault()
     const formData = new FormData(listForm)
@@ -14,16 +16,25 @@ window.addEventListener("load", (event)=>{
         },
         body: JSON.stringify({ name })
       })
+
       const newList = await res.json()
-      listDiv.innerHTML = ''
+      containerDiv.innerHTML = ''
+
       newList.forEach(list => {
-        const div = document.createElement('div')
-        const a = document.createElement('a')
-        a.setAttribute('href', `${list.href}`)
-        a.innerHTML = `${list.name}`
-        div.appendChild(a)
-        listDiv.appendChild(div)
+        const rowDiv = document.createElement('div')
+        rowDiv.classList.add('left-container__list-row');
+        rowDiv.innerHTML = `
+          <a id="${list.id}" href="${list.href}">${list.name}</a>
+          <div class="left-container__delete-button-div">
+            <div class="left-container__delete-icon">
+              <i class="fa fa-trash"></i>
+            </div>
+          </div>`
+
+        containerDiv.appendChild(rowDiv)
       })
+
+      input.value = '';
     } catch (error) {
       console.log(error)
     }
