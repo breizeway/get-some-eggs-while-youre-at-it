@@ -1,16 +1,18 @@
 extends layout
 block content
-  form(action='/users' method='post')
-    input(type='hidden' name='_csrf' value= csrfToken)
-    div.form__div-title: h2 Sign Up
-    div.form__div-label: label First Name
-    div.form__div-input: input(type='text' name='firstName' required)
-    div.form__div-label: label Last Name
-    div.form__div-input: input(type='text' name='lastName' required)
-    div.form__div-label: label Email
-    div.form__div-input: input(type='text' name='email' placeholder='example@email.com' required)
-    div.form__div-label: label Password
-    div.form__div-input: input(type='password' name='password' required)
-    div.form__div-label: label Confirm Password
-    div.form__div-input: input(type='password' name='confirmPassword' required)
-    div.form__div-button: button(type='submit') Sign up
+  .login-signup-body
+    .login-signup-link: a(href="/users/login") Login
+    form(action='/users' method='post' class='login-signup-form')
+      input(type='hidden' name='_csrf' value= csrfToken)
+      .login-signup-form__div-title: h2 Sign Up
+      .login-signup-form__div-label: label First Name
+      .login-signup-form__div-input: input(type='text' name='firstName' required)
+      .login-signup-form__div-label: label Last Name
+      .login-signup-form__div-input: input(type='text' name='lastName' required)
+      .login-signup-form__div-label: label Email
+      .login-signup-form__div-input: input(type='text' name='email' placeholder='example@email.com' required)
+      .login-signup-form__div-label: label Password
+      .login-signup-form__div-input: input(type='password' name='password' required)
+      .login-signup-form__div-label: label Confirm Password
+      .login-signup-form__div-input: input(type='password' name='confirmPassword' required)
+      .login-signup-form__div-button: button(type='submit') Sign up

@@ -1,10 +1,12 @@
 extends layout
 block content
-  form(action='/users/login' method='post')
-    input(type='hidden' name='_csrf' value=csrfToken)
-    div.form__div-title: h2 Log In
-    div.form__div-label: label Email
-    div.form__div-input: input(type='text' name='email' placeholder='example@email.com')
-    div.form__div-label: label Password
-    div.form__div-input: input(type='password' name='password')
-    div.form__div-button: button(type='submit') Login
+  .login-signup-body
+    .login-signup-link: a(href="/users/signup") Sign Up
+    form(action='/users/login' method='post' class='login-signup-form')
+      input(type='hidden' name='_csrf' value=csrfToken)
+      .login-signup-form__div-title: h2 Log In
+      .login-signup-form__div-label: label Email
+      .login-signup-form__div-input: input(type='text' name='email' placeholder='example@email.com')
+      .login-signup-form__div-label: label Password
+      .login-signup-form__div-input: input(type='password' name='password')
+      .login-signup-form__div-button: button(type='submit') Login

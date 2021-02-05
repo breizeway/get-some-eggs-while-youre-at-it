@@ -1,37 +1,8 @@
 doctype html
 html
   head
-      block head
-        title="Express Starter App"
-        link(rel='stylesheet' href='/stylesheets/stylesheets.css')
-        script(src='/javascripts/left-container.js')
+    title="Get Some Eggs While You're At It"
+    link(rel='stylesheet' href='/stylesheets/stylesheets.css')
+    block head
   body
-    .navbar
-      .navbar__name-div
-        span.navbar__name-span What needs to be done today?
-      .navbar__search-div
-        form(action='/search'  method='get' class='navbar__search-form')
-          input(type='hidden' name='_csrf' value=csrfToken)
-          input(class='navbar__search-input' type='text' placeholder='Enter search here...' required)
-          button(class='navbar__search-button' type='submit') Search
-        .navbar__search-error
-          ul
-      nav.navbar__nav
-        a(href='') Logout
-    .left-container
-      nav.left-container__nav
-        div.left-container__lists-div
-          ul.left-container__category-ul
-            li: a(href='/lists/inbox') Inbox
-            li: a(href='/list/work') Work
-            li: a(href='/lists/personal') Personal
-            li: a(href='/tasks') All
-              each list in lists
-                li: a(href='/list/#{list.id}')= list.name
-          .left-container__add-list-div
-            form(class='left-container__add-list-form')
-              input(type='hidden' name='_csrf' value=csrfToken)
-              input(class='left-container__list-input' type='text' name='name' placeholder='Create a new list...' required)
-              button(type='submit' class='left-container__list-button') Create
-    .main-container
-      block content
+    block content

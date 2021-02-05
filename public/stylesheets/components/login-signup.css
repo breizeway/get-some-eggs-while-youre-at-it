@@ -1,0 +1,41 @@
+.login-signup-body {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-signup-link {
+  width: 25%;
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 12px;
+}
+
+.login-signup-form {
+	display: flex;
+	flex-direction: column;
+  width: 25%;
+  box-shadow: 1px 1px 2px gray;
+	border-radius: 12px;
+	padding: 12px;
+}
+
+.login-signup-form div,
+.login-signup-form label,
+.login-signup-form input,
+.login-signup-form button {
+  width: 100%;
+}
+
+.login-signup-form__div-title {
+  display: flex;
+  justify-content: center;
+}
+
+.login-signup-form__div-label,
+.login-signup-form__div-button {
+  margin-top: 12px;
+}
