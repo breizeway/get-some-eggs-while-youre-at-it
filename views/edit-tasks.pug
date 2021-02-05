@@ -1,0 +1,14 @@
+extends nav-lists
+block main-container
+  div.edit-container
+    h2= task.name
+    .create-note
+      form(id=`edit_${task.id}` class='create-form__form')
+        input(type='hidden' name='id' value= task.id);
+        label(for='new-note') New Note:
+        textarea(id='new-note' class='create-form__textarea' type='text' name='note')
+        input(class='create-form__save-button' type='submit') Save
+    .notes
+      .notes__note-list
+        each note in notes
+          .notes__note-list__div= note.note

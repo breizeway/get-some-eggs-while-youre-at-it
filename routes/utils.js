@@ -27,4 +27,14 @@ const convertListData = listData => {
     }));
 }
 
-module.exports = { asyncHandler, csrfProtection, handleValidationErrors, convertListData };
+const convertTaskData = taskData => {
+    return taskData.map(task => ({
+        htmlId: `task_${task.id}`,
+        id: task.id,
+        name: task.name,
+        href: `/tasks/${task.id}`
+    }));
+}
+
+
+module.exports = { asyncHandler, csrfProtection, handleValidationErrors, convertListData, convertTaskData };
