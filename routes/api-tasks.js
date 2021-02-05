@@ -12,8 +12,9 @@ router.use(requireAuth);
 
 router.post('/', asyncHandler(async (req, res) => {
     const user = req.session.user
-    const { name } = req.body
-    await taskData.create(name)
+    const { name, listId } = req.body
+    await taskData.create(name, listId)
+    
 }));
 
 module.exports = router 

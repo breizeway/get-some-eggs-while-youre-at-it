@@ -1,8 +1,11 @@
 extends nav-lists
+append head
+  script(src="/javascripts/main-container.js")
 block main-container
   .main-container__tasks
     form(class='main-container__new-task')
       input(type='hidden' name='_csrf' value=csrfToken)
+      input(type='hidden' name='listId' value=list.id)
       input(type='text' placeholder='Create a new task...' name='name' required class='main-container__task-input')
       button(type='submit' class='main-container__task-button') Add Task
     div.main-container__tasks-list
