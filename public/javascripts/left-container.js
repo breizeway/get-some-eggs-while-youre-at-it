@@ -1,11 +1,13 @@
 window.addEventListener("load", (event)=>{
   const listForm = document.querySelector(".left-container__add-list-form")
-  const listUl = document.querySelector(".left-container__category-ul")
+  const containerDiv = document.querySelector(".left-container__list-row-container")
+  const input = document.querySelector(".left-container__list-input")
+
   listForm.addEventListener("submit", async (event) => {
     event.preventDefault()
     const formData = new FormData(listForm)
     const name = formData.get('name')
-    
+
     try {
       const res = await fetch('/api/lists', {
         method: 'POST',
@@ -14,27 +16,27 @@ window.addEventListener("load", (event)=>{
         },
         body: JSON.stringify({ name })
       })
+
       const newList = await res.json()
-      listUl.innerHTML = ''
+      containerDiv.innerHTML = ''
+
       newList.forEach(list => {
-        const li = document.createElement('li')
-        const a = document.createElement('a')
-        a.setAttribute('href', `${list.href}`)
-        a.innerHTML = `${list.name}`
-        li.appendChild(a)
-        listUl.appendChild(li)
+        const rowDiv = document.createElement('div')
+        rowDiv.classList.add('left-container__list-row');
+        rowDiv.innerHTML = `
+          <a id="${list.id}" href="${list.href}">${list.name}</a>
+          <div class="left-container__delete-button-div">
+            <div class="left-container__delete-icon">
+              <i class="fa fa-trash"></i>
+            </div>
+          </div>`
+
+        containerDiv.appendChild(rowDiv)
       })
+
+      input.value = '';
     } catch (error) {
       console.log(error)
     }
   })
 })
-
-
-
-
-
-
-
-
-
