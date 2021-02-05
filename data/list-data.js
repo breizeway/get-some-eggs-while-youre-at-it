@@ -26,4 +26,3 @@ const remove = async id => {
 }
 
 module.exports = { byName, all, create, remove }
-
