@@ -7,7 +7,6 @@
 }
 
 .main-container__tasks-list {
-  list-style-type: none;
   padding: 0;
   margin: 10px 0;
   display: flex;
@@ -38,4 +37,8 @@
 
 .fa-trash {
   font-size: 20px;
+}
+
+.fa-trash:hover {
+  cursor: pointer;
 }
