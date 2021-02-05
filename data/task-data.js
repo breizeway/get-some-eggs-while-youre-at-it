@@ -9,8 +9,8 @@ const byList = async (...listId) => {
     });
 }
 
-const byID = async (listId) => {
-  return await Task.findByPk(listId);
+const byID = async (taskId) => {
+  return await Task.findByPk(taskId)
 }
 
 

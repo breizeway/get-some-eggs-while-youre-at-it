@@ -8,7 +8,10 @@ const { asyncHandler, csrfProtection, handleValidationErrors } = require('./util
 const { listData, taskData } = require('../data')
 const { requireAuth } = require('../auth');
 
-router.get('./', asyncHandler(async (req, res) => {
+router.use(requireAuth);
 
-    const task = taskData.byId(listId);
-}))
+router.get('/', asyncHandler(async (req, res) => {
+    const { taskId } = req.body;
+    const task = await taskData.byId(taskId);
+    res.render('edit-tasks', { task });
+}));
