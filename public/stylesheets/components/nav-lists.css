@@ -74,7 +74,7 @@
 .navbar__nav {
   justify-content: flex-end;
   align-items: center;
-  padding: 4px;
+  padding: 4px 20px;
 }
 
 .left-container {
@@ -87,8 +87,20 @@
   padding: 4px;
 }
 
-.left-container__nav ul {
-  list-style-type: none;
+.left-container__list-row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.left-container__list-row a {
+  display: block;
+  width: 100%;
+  text-decoration-line: none;
+  padding-left: 10px;
+}
+
+.left-container__list-row a:hover {
+  background-color: darkgrey;
 }
 
 .left-container__add-list-form {
