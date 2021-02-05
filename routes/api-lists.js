@@ -6,6 +6,9 @@ const bcrypt = require('bcryptjs');
 const router = express.Router();
 const { asyncHandler, csrfProtection, handleValidationErrors } = require('./utils');
 const { listData, taskData } = require('../data')
+const { requireAuth } = require('../auth');
+
+router.use(requireAuth);
 
 router.post('/', asyncHandler( async(req, res) => {
   const user = req.session.user
