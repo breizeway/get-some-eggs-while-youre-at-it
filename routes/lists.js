@@ -6,19 +6,15 @@ const bcrypt = require('bcryptjs');
 const router = express.Router();
 const { asyncHandler, csrfProtection, handleValidationErrors } = require('./utils');
 const { listData, taskData } = require('../data')
+const { requireAuth } = require('../auth');
 
+router.use(requireAuth);
 
 router.get('/', csrfProtection, asyncHandler( async(req, res) => {
     const user = req.session.user
     const listId = await listData.byName(user.id, 'Inbox')
     res.redirect(`/lists/${listId}`);
 }));
-
-// router.post('/', csrfProtection, asyncHandler( async(req, res) => {
-//     const name = req.body.name;
-//     const user = req.session.user;
-//     res.redirect('/lists');
-// }));
 
 router.get('/:id', csrfProtection, asyncHandler(async(req, res) => {
     const listId = req.params.id
