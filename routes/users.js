@@ -5,6 +5,7 @@ const csrf = require('csurf');
 const bcrypt = require('bcryptjs');
 const router = express.Router();
 const { asyncHandler, csrfProtection, handleValidationErrors } = require('./utils');
+const { listData } = require('../data');
 
 const userSignupValidation = [
   check('firstName')
@@ -53,12 +54,19 @@ router.get('/signup', csrfProtection, asyncHandler(async (req, res) => {
 router.post('/',
   userSignupValidation,
   csrfProtection,
-  asyncHandler(async (req, res) => {
+  asyncHandler(async (req, res, next) => {
   const { firstName, lastName, email, password } = req.body;
   const hashedPassword = await bcrypt.hash(password, 10);
   const user = await User.create({ firstName, lastName, email, password: hashedPassword });
   req.session.user = { id: user.id, email: user.email };
-  res.redirect('/');
+  try{
+    await listData.create(user.id, 'Inbox');
+    await listData.create(user.id, 'Work');
+    await listData.create(user.id, 'Personal');
+  } catch (err) {
+    console.log(err);
+  }
+  res.redirect('/lists');
 }));
 
 router.get('/login', csrfProtection, (req, res) => {
