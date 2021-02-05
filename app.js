@@ -41,8 +41,8 @@ store.sync();
 app.use(restoreUser);
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-app.use('/lists', listsRouter)
-app.use('/api/lists', apiListsRouter)
+app.use('/lists', listsRouter);
+app.use('/api/lists', apiListsRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
