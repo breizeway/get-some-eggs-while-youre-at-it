@@ -5,6 +5,8 @@ block main-container
       input(type='hidden' name='_csrf' value=csrfToken)
       input(type='text' placeholder='Create a new task...' name='name' required class='main-container__task-input')
       button(type='submit' class='main-container__task-button') Add Task
-    ul.main-container__tasks-list
+    div.main-container__tasks-list
       each task in tasks
-        li= task.name
+        div.main-container__tasks-row
+          div.main-container__task-name-div: span.main-container__task-name-span= task.name
+          div.main-container__delete-button-div: div.main-container__delete-icon: i(class='fa fa-trash')

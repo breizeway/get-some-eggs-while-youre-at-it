@@ -4,7 +4,7 @@ const { check } = require('express-validator');
 const csrf = require('csurf');
 const bcrypt = require('bcryptjs');
 const router = express.Router();
-const { asyncHandler, csrfProtection, handleValidationErrors } = require('./utils');
+const { asyncHandler, convertListData } = require('./utils');
 const { listData, taskData } = require('../data')
 const { requireAuth } = require('../auth');
 
@@ -14,13 +14,9 @@ router.post('/', asyncHandler( async(req, res) => {
   const user = req.session.user
   const { name } = req.body
   await listData.create(user.id, name);
-  const allLists = await listData.all(user.id);
-  const data = allLists.map(list => ({
-    name: list.name,
-    href: `/lists/${list.id}`
-  }));
-  res.json(data);
+  let lists = await listData.all(user.id)
+  lists = convertListData(lists)
+  res.json(lists);
 }));
-
 
 module.exports = router;

@@ -10,4 +10,32 @@
   list-style-type: none;
   padding: 0;
   margin: 10px 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.main-container__tasks-row {
+  display: flex;
+  justify-content: space-between;
+  width: 500px;
+  height: 30px;
+}
+
+.main-container__task-name-div {
+  width: 80%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.main-container__delete-button-div {
+  width: 20%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.fa-trash {
+  font-size: 20px;
 }
