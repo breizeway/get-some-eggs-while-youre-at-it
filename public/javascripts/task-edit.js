@@ -17,18 +17,21 @@ window.addEventListener("load", (event)=> {
         const newNote = await res.json();
 
         const subContainer = document.createElement('div');
+        subContainer.innerHTML = `<div class="notes__note-div">${newNote.note}</div>
+        <div class="notes__delete-icon">
+          <i class="fa fa-trash" id="${newNote.id}"></i>
+        </div>`
+        // const deleteButton = document.createElement('button');
+        // deleteButton.setAttribute('id', `delete-task_${newNote.taskId}`);
+        // deleteButton.setAttribute('class', 'notes__note-list__button');
+        // deleteButton.innerHTML='Delete';
 
-        const deleteButton = document.createElement('button');
-        deleteButton.setAttribute('id', `delete-task_${newNote.taskId}`);
-        deleteButton.setAttribute('class', 'notes__note-list__button');
-        deleteButton.innerHTML='Delete';
+        // const noteDiv = document.createElement('div');
+        // noteDiv.setAttribute('class', 'notes__note-list__div');
+        // noteDiv.innerHTML = `${newNote.note}`;
 
-        const noteDiv = document.createElement('div');
-        noteDiv.setAttribute('class', 'notes__note-list__div');
-        noteDiv.innerHTML = `${newNote.note}`;
-
-        subContainer.appendChild(noteDiv);
-        subContainer.appendChild(deleteButton);
-        notesContainer.appendChild(subContainer);
+        // subContainer.appendChild(noteDiv);
+        // subContainer.appendChild(deleteButton);
+        // notesContainer.appendChild(subContainer);
     });
 })
