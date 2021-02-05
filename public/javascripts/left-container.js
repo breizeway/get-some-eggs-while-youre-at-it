@@ -14,13 +14,16 @@ window.addEventListener("load", (event)=>{
         },
         body: JSON.stringify({ name })
       })
-      const { listName, href } = await res.json()
-      const li = document.createElement('li')
-      const a = document.createElement('a')
-      a.setAttribute('href', `${href}`)
-      a.innerHTML = `${listName}`
-      li.appendChild(a)
-      listUl.appendChild(li)
+      const newList = await res.json()
+      listUl.innerHTML = ''
+      newList.forEach(list => {
+        const li = document.createElement('li')
+        const a = document.createElement('a')
+        a.setAttribute('href', `${list.href}`)
+        a.innerHTML = `${list.name}`
+        li.appendChild(a)
+        listUl.appendChild(li)
+      })
     } catch (error) {
       console.log(error)
     }
