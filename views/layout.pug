@@ -8,7 +8,7 @@ html
   body
     .navbar
       .navbar__name-div
-        span.navbar__name-span What needs to be done today #{user.firstName}?
+        span.navbar__name-span What needs to be done today?
       .navbar__search-div
         form(action='/search'  method='get' class='navbar__search-form')
           input(type='hidden' name='_csrf' value=csrfToken)
@@ -17,7 +17,7 @@ html
         .navbar__search-error
           ul
       nav.navbar__nav
-        a(href='/user/logout') Logout
+        a(href='') Logout
     .left-container
       nav.left-container__nav
         div.left-container__lists-div
@@ -26,8 +26,8 @@ html
             li: a(href='/list/work') Work
             li: a(href='/lists/personal') Personal
             li: a(href='/tasks') All
-            //- each list in lists
-              li: a(href='/list/#{list.id}')= list.name
+              each list in lists
+                li: a(href='/list/#{list.id}')= list.name
           .left-container__add-list-div
             form(class='left-container__add-list-form')
               input(type='hidden' name='_csrf' value=csrfToken)

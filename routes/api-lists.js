@@ -9,13 +9,13 @@ const { listData, taskData } = require('../data')
 
 router.post('/', asyncHandler( async(req, res) => {
   const user = req.session.user
-  const name = req.body.name
-  await listData.create(user.id, name);
-  const allLists = await listData.all(user.id);
-  const data = allLists.map(list => ({
-    listName: list.name,
-    href: `/lists/${list.id}`
-  }));
+  const { name } = req.body
+  const newList = await listData.create(user.id, name);
+  // const allLists = await listData.all(user.id);
+  const data = {
+    listName: newList.name,
+    href: `/lists/${newList.id}`
+  }
   res.json(data);
 }));
 
