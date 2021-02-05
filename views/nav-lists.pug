@@ -19,9 +19,9 @@ block content
     .left-container
       nav.left-container__nav
         div.left-container__lists-div
-          ul.left-container__category-ul
+          div.left-container__category-div
             each list in lists
-              li: a(href='/lists/#{list.id}')= list.name
+              div: a(id=list.id href=list.href)= list.name
           .left-container__add-list-div
             form(class='left-container__add-list-form')
               input(class='left-container__list-input' name='name' type='text' placeholder='Create a new list...' required)

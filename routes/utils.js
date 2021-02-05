@@ -18,11 +18,12 @@ const handleValidationErrors = (req, res, next) => {
     next();
 };
 
+const convertListData = listData => {
+    return listData.map(list => ({
+        id: `list_${list.id}`,
+        name: list.name,
+        href: `/lists/${list.id}`
+    }));
+}
 
-
-
-
-
-
-
-module.exports = { asyncHandler, csrfProtection, handleValidationErrors };
+module.exports = { asyncHandler, csrfProtection, handleValidationErrors, convertListData };
