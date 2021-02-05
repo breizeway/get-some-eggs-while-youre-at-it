@@ -1,6 +1,7 @@
 extends layout
 block content
   .login-signup-body
+    .login-signup-link: a(href="/users/signup") Sign Up
     form(action='/users/login' method='post' class='login-signup-form')
       input(type='hidden' name='_csrf' value=csrfToken)
       .login-signup-form__div-title: h2 Log In

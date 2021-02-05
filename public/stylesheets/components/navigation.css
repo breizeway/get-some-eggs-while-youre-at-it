@@ -50,7 +50,7 @@
 .navbar__search-form {
   display: flex;
   flex-direction: row;
-  width: 50%;
+  width: 360px;
   height: 100%;
 }
 
@@ -79,6 +79,16 @@
 
 .left-container {
   grid-area: left-container;
+  background-color: var(--light-yellow);
+  padding-top: 20px;
+}
+
+.left-container__nav {
+  padding: 4px;
+}
+
+.left-container__nav ul {
+  list-style-type: none;
 }
 
 .left-container__add-list-form {
@@ -89,4 +99,5 @@
 
 .main-container {
   grid-area: main-container;
+  background-color: var(--light-yellow);
 }

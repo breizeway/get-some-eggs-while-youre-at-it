@@ -1,4 +1,8 @@
 extends layout
+
+append head
+  script(src="/javascripts/left-container.js")
+
 block content
   .navigation-body
     .navbar
@@ -20,11 +24,11 @@ block content
             li: a(href='/task') All
             li: a(href='/list/work') Work
             li: a(href='/list/personal') Personal
-            //- each list in lists
-              li: a(href='/list/#{list.id}')= list.name
+              each list in lists
+                li: a(href='/lists/#{list.id}')= list.name
           .left-container__add-list-div
-            form(action='/list' method='post' class='left-container__add-list-form')
-              input(class='left-container__list-input' type='text' placeholder='Create a new list...' required)
+            form(class='left-container__add-list-form')
+              input(class='left-container__list-input' name='name' type='text' placeholder='Create a new list...' required)
               button(type='submit' class='left-container__list-button') Create
     .main-container
       block main-container
