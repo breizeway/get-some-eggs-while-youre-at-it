@@ -5,9 +5,8 @@ append head
 
 block content
   .navigation-body
-    .navbar
+    div.navbar
       .navbar__name-div
-        span.navbar__name-span What needs to be done today #{user.firstName}?
       .navbar__search-div
         form(action='/search'  method='get' class='navbar__search-form')
           input(class='navbar__search-input' type='text' placeholder='Enter search here...' required)
@@ -17,8 +16,12 @@ block content
       nav.navbar__nav
         a(href='/users/logout') Logout
     .left-container
+      div.left-container__logo-div
+        div.left-container__logo-image
+        div.left-container__logo-text-div
+          h1.left-container__logo-text Get Some Eggs While You're At It
       nav.left-container__nav
-        div.left-container__category-div
+        .left-container__category-div
           div.left-container__category-header-div: h2 Lists
           div.left-container__list-row-container
             each list in lists
