@@ -8,8 +8,8 @@
 }
 
 .login-signup__content {
-  width: 25%;
-  display: flex;
+  width: 340px;
+  display: grid;
   flex-direction: column;
 }
 
