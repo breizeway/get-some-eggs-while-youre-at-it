@@ -1,4 +1,7 @@
 extends layout
+
+append head
+  script(src="/javascripts/login.js")
 block content
   div.login-signup__body
     div.login-signup__content
@@ -18,3 +21,4 @@ block content
       div.login-signup__link-div
         span.login-signup__link-span Don't have an account yet?
         div.login-signup__link-a-div: a(href="/users/signup").login-signup__link-a Sign Up
+

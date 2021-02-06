@@ -31,7 +31,10 @@ router.post('/note', asyncHandler(async (req, res) => {
 
 router.delete('/', asyncHandler(async(req, res) => {
     const { listId, taskId } = req.body
-    console.log(listId)
+
+    const notes = await noteData.allNotes(taskId);
+    notes.forEach(async note => await noteData.destroyNote(note.id))
+
     await taskData.destroyTask(taskId)
     try {
         let tasks = await taskData.byList(listId)
