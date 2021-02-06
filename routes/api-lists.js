@@ -19,7 +19,7 @@ router.post('/', asyncHandler( async(req, res) => {
     res.json(lists);
 }));
 
-router.patch('/', asyncHandler(async(req, res) => {
+router.delete('/', asyncHandler(async(req, res) => {
     const user = req.session.user
     let {listId} = req.body;
     listId = parseInt(listId)

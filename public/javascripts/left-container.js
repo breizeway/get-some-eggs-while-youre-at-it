@@ -54,7 +54,7 @@ window.addEventListener('load', (event)=>{
 
     try {
       const res = await fetch('/api/lists', {
-        method: 'PATCH',
+        method: 'DELETE',
         headers: {
           'Content-Type': 'application/json'
         },
