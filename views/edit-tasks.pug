@@ -14,6 +14,7 @@ block main-container
     .edit-container__notes
       .edit-container__note-list
         each note in notes
-          div(class='edit-container__note-row')=note.note
+          div.edit-container__note-row
+            div(class='edit-container__note-content')=note.note
             div(class='edit-container__delete-button-div')
               div.edit-container__delet-icon: i(class='fa fa-trash' id='#{note.id}')
