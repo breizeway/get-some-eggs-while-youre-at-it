@@ -1,12 +1,37 @@
 :root {
-	--yellow: #FFD600;
-	--light-yellow: #fff2b0;
-	--h1:#150700;
-	--left-container-width: 200px;
+	--theme1: #e9c200;
+	--theme2: #faefb4;
+
+	--theme3: #e5af2f;
+	--theme4: #fbce43;
+	--theme5: #fae3bf;
+
+	--h1:#ed881d;
+	--h2:#000000;
+	--h2-size: 20px;
+	--a-size: 16px;
+	--header-font: 'Arvo', serif;
+	--left-container-width: 240px;
+	--row-height: 30px;
+	--standard-margin: 20px;
+}
+
+* {
+  	font-family: var(--header-font);
+
 }
 
 h1 {
-  color: var(--h1);
+	color: var(--h1);
+	font-weight: bold;
+}
+
+h2 {
+	color: var(--h2);
+	font-size: var(--h2-size);
+}
+a {
+	font-size: var(--a-size);
 }
 
 html {

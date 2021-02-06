@@ -4,6 +4,8 @@ append head
   script(src="/javascripts/main-container.js")
 
 block main-container
+  .main-container__name-div
+    h2.main-container__name-span Here's what you need to get done #{user.firstName}...
   .main-container__tasks
     form(class='main-container__new-task')
       input(type='hidden' name='_csrf' value=csrfToken)
