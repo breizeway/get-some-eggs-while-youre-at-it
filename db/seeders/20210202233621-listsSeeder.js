@@ -18,6 +18,9 @@ module.exports = {
       { name: 'Inbox', userId: 5, createdAt: new Date(), updatedAt: new Date() },
       { name: 'Work', userId: 5, createdAt: new Date(), updatedAt: new Date() },
       { name: 'Personal', userId: 5, createdAt: new Date(), updatedAt: new Date() },
+      { name: 'Inbox', userId: 6, createdAt: new Date(), updatedAt: new Date() },
+      { name: 'Work', userId: 6, createdAt: new Date(), updatedAt: new Date() },
+      { name: 'Personal', userId: 6, createdAt: new Date(), updatedAt: new Date() },
 
     ], {});
   },

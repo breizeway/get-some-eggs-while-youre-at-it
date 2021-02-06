@@ -3,8 +3,8 @@ window.addEventListener("load", (event) => {
     demo.addEventListener('click', () => {
         const email = document.querySelector('.login-signup-form__email')
         const password = document.querySelector('.login-signup-form__password')
-        email.value = 'demo@email.user.com'
-        password.value = 'password1234'
+        email.value = 'demo123@email.com'
+        password.value = 'password6'
         document.querySelector('.login-signup-form').submit()
     });
 });
