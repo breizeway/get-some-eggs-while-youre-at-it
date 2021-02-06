@@ -13,25 +13,34 @@
   flex-direction: column;
 }
 
-.main-container__tasks-row {
+.main-container__task-row {
   display: flex;
   justify-content: space-between;
-  width: 500px;
+  width: 100%;
   height: 30px;
 }
 
+.main-container__task-row a {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  text-decoration-line: none;
+}
+
+.main-container__task-row a:hover {
+  background-color: lightgrey;
+}
+
 .main-container__task-name-div {
-  width: 80%;
   display: flex;
   justify-content: flex-start;
   align-items: center;
 }
 
 .main-container__delete-button-div {
-  width: 20%;
   height: 100%;
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: center;
 }
 

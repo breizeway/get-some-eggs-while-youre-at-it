@@ -26,5 +26,4 @@ router.get('/:id', csrfProtection, asyncHandler(async(req, res) => {
     res.render('tasks', { tasks, lists, listId, csrfToken: req.csrfToken() })
 }));
 
-
 module.exports = router

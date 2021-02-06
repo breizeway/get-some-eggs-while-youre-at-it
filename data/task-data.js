@@ -13,6 +13,17 @@ const byId = async (taskId) => {
   return await Task.findByPk(taskId)
 }
 
+// const changeList = async (tasks, user) => {
+//   await Task.update(
+//     {
+//       updatedAt: new Date(),
+//       listId: null
+//     }, {
+//       where: null
+//     }
+
+//   )
+// }
 
 const create = async (userId, name, listId) => await Task.create({userId, name, listId});
 
