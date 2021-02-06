@@ -1,4 +1,7 @@
 extends layout
+
+append head
+  script(src="/javascripts/login.js")
 block content
   .login-signup-body
     .login-signup-link: a(href="/users/signup") Sign Up
@@ -6,7 +9,8 @@ block content
       input(type='hidden' name='_csrf' value=csrfToken)
       .login-signup-form__div-title: h2 Log In
       .login-signup-form__div-label: label Email
-      .login-signup-form__div-input: input(type='text' name='email' placeholder='example@email.com')
+      .login-signup-form__div-input: input(type='text' class='login-signup-form__email' name='email' placeholder='example@email.com')
       .login-signup-form__div-label: label Password
-      .login-signup-form__div-input: input(type='password' name='password')
+      .login-signup-form__div-input: input(type='password' class='login-signup-form__password' name='password')
       .login-signup-form__div-button: button(type='submit') Login
+      .login-signup-form__div-button: button(type='submit' class='login-signup-form__demo-user') Demo User
