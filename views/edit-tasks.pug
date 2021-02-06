@@ -8,8 +8,7 @@ block main-container
     h2= task.name
     form(id=`edit_${task.id}` class='edit-container__new-note')
       input(type='hidden' name='id' value= task.id)
-      label(for='new-note') New Note:
-      textarea(id='new-note' class='edit-container__note' type='text' name='note')
+      textarea(id='new-note' class='edit-container__note' type='text' name='note' placeholder='Add a note...')
       button(class='edit-container__save-button' type='submit') Save
     .edit-container__notes
       .edit-container__note-list
