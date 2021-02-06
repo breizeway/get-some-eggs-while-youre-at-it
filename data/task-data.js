@@ -9,12 +9,9 @@ const byList = async (...listId) => {
     });
 }
 
-const byID = async (taskId) => {
+const byId = async (taskId) => {
   return await Task.findByPk(taskId)
 }
-
-
-const create = async (listId, name) => await Task.create({ listId, name });
 
 // const changeList = async (tasks, user) => {
 //   await Task.update(
@@ -28,4 +25,7 @@ const create = async (listId, name) => await Task.create({ listId, name });
 //   )
 // }
 
-module.exports = { byList }
+const create = async (userId, name, listId) => await Task.create({userId, name, listId});
+
+
+module.exports = { byList, create, byId }
