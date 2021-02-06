@@ -4,7 +4,6 @@ const { Task, Note} = require('../db/models');
 const allNotes = async taskId => {
     return await Note.findAll({
         where: { taskId },
-        // order: ['createdAt']
     });
 }
 
