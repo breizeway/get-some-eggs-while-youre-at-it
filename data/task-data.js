@@ -14,5 +14,7 @@ const byID = async (taskId) => {
 }
 
 
-const create = async (listId, name) => await Task.create({ listId, name });
-module.exports = { byList }
+const create = async (userId, name, listId) => await Task.create({userId, name, listId});
+
+
+module.exports = { byList, create }
