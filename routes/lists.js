@@ -23,7 +23,7 @@ router.get('/:id', csrfProtection, asyncHandler(async(req, res) => {
     lists = convertListData(lists)
     let tasks = await taskData.byList(listId)
     tasks = convertTaskData(tasks)
-    res.render('tasks', { tasks, lists, csrfToken: req.csrfToken() })
+    res.render('tasks', { tasks, lists, listId, csrfToken: req.csrfToken() })
 }));
 
 
