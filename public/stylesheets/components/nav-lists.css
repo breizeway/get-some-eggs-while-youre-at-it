@@ -11,7 +11,7 @@
 .navbar {
   grid-area: navbar;
   height: 40px;
-  background-color: var(--yellow);
+  background-color: var(--theme1);
   display: grid;
   grid-template: auto / var(--left-container-width) 4fr 1fr;
   grid-template-areas:
@@ -79,7 +79,7 @@
 
 .left-container {
   grid-area: left-container;
-  background-color: var(--light-yellow);
+  background-color: var(--theme2);
   padding-top: 20px;
 }
 
@@ -111,5 +111,5 @@
 
 .main-container {
   grid-area: main-container;
-  background-color: var(--light-yellow);
+  background-color: var(--theme2);
 }

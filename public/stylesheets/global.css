@@ -1,12 +1,21 @@
 :root {
-	--yellow: #FFD600;
-	--light-yellow: #fff2b0;
+	--theme1: #81450a;
+	--theme5: #b66b13;
+	--theme3: #e5af2f;
+	--theme4: #fbce43;
+	--theme2: #fae3bf;
 	--h1:#150700;
 	--left-container-width: 200px;
+	--header-font: 'Arvo', serif;
 }
 
-h1 {
-  color: var(--h1);
+* {
+  	font-family: var(--header-font);
+
+}
+
+h1, h2 {
+	font-weight: bold;
 }
 
 html {
