@@ -15,4 +15,17 @@ const byID = async (taskId) => {
 
 
 const create = async (listId, name) => await Task.create({ listId, name });
+
+// const changeList = async (tasks, user) => {
+//   await Task.update(
+//     {
+//       updatedAt: new Date(),
+//       listId: null
+//     }, {
+//       where: null
+//     }
+
+//   )
+// }
+
 module.exports = { byList }

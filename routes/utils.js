@@ -22,6 +22,7 @@ const convertListData = listData => {
     return listData.map(list => ({
         id: list.id,
         htmlId: `list_${list.id}`,
+        deleteHtmlId: `list_delete_${list.id}`,
         name: list.name,
         href: `/lists/${list.id}`
     }));

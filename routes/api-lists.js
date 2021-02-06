@@ -19,11 +19,15 @@ router.post('/', asyncHandler( async(req, res) => {
     res.json(lists);
 }));
 
-router.delete('/', asyncHandler( async(req, res) => {
-    const user = req.session.user;
-    const htmlId = req.body;
-    const id = htmlId.split('_')[1] // is string--does sequelize need an integer?
-    // listdata delete
-}));
+router.patch('/', asyncHandler(async(req, res) => {
+    const user = req.session.user
+    let {listId} = req.body;
+    listId = parseInt(listId)
+    await listData.destroy(listId)
+
+    let lists = await listData.all(user.id)
+    lists = convertListData(lists)
+    res.json(lists);
+}))
 
 module.exports = router;
