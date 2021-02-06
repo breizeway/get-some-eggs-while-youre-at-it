@@ -4,10 +4,8 @@ const { check } = require('express-validator');
 const csrf = require('csurf');
 const bcrypt = require('bcryptjs');
 const router = express.Router();
-const { asyncHandler, convertListData } = require('./utils');
 const { listData, taskData, noteData } = require('../data')
 const { asyncHandler, convertListData, convertTaskData } = require('./utils');
-const { listData, taskData } = require('../data')
 const { requireAuth } = require('../auth');
 
 router.use(requireAuth);
