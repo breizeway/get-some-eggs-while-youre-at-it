@@ -36,7 +36,7 @@
 
 .navbar__search-div {
   grid-area: search;
-  padding: 4px 4px 4px 0;
+  padding: 4px 4px 4px var(--standard-margin);
   justify-content: flex-start;
   align-items: center;
   width: 100%;
@@ -74,7 +74,7 @@
 .navbar__nav {
   justify-content: flex-end;
   align-items: center;
-  padding: 4px var(--standard-margin);
+  padding: 4px 40px;
 }
 
 .left-container {

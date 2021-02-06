@@ -1,6 +1,5 @@
 .main-container__name-div {
   margin: var(--standard-margin) 0 4px var(--standard-margin)
-
 }
 
 .main-container__tasks {
@@ -23,6 +22,10 @@
   justify-content: space-between;
   width: 100%;
   height: 30px;
+}
+
+.main-container__task-row + .main-container__task-row {
+  border-top: 1px solid lightgray;
 }
 
 .main-container__task-row a {
