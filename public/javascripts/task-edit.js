@@ -2,25 +2,33 @@ window.addEventListener("load", (event)=> {
     const noteForm = document.querySelector('.create-form__form');
     const formData = new FormData(noteForm)
     const notesContainer = document.querySelector('.notes__note-list')
-
+    const textarea = document.getElementById('new-note')
     noteForm.addEventListener('submit', async (event) => {
         event.preventDefault();
-        const note = formData.get('note');
-        const taskId = formData.get('id');
 
-        const res = await fetch('/api/tasks/note', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ note, taskId })
-        });
+        const note = textarea.value;
+        const taskId = formData.get('id')
 
-        const newNote = await res.json();
+        try {
+            const res = await fetch('/api/tasks/note', {
+                method: 'POST',
+                headers: {
+                  'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ note, taskId })
+        })
+
+
+        const newNote = await res.json()
+        console.log(newNote)
 
         const subContainer = document.createElement('div');
         subContainer.innerHTML = `<div class="notes__note-div">${newNote.note}</div>
         <div class="notes__delete-icon">
           <i class="fa fa-trash" id="${newNote.id}"></i>
         </div>`
+
+        notesContainer.appendChild(subContainer);
         // const deleteButton = document.createElement('button');
         // deleteButton.setAttribute('id', `delete-task_${newNote.taskId}`);
         // deleteButton.setAttribute('class', 'notes__note-list__button');
@@ -32,6 +40,8 @@ window.addEventListener("load", (event)=> {
 
         // subContainer.appendChild(noteDiv);
         // subContainer.appendChild(deleteButton);
-        // notesContainer.appendChild(subContainer);
+        } catch (error) {
+            console.log(error)
+        }
     });
 })
