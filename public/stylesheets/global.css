@@ -1,8 +1,9 @@
 :root {
-	--yellow: #FFD600;
-	--light-yellow: #fff2b0;
+	--yellow: #e9c200;
+	--light-yellow: #faefb4;
 	--h1:#150700;
-	--left-container-width: 200px;
+	--left-container-width: 240px;
+	--standard-margin: 20px;
 }
 
 h1 {

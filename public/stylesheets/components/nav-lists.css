@@ -74,17 +74,45 @@
 .navbar__nav {
   justify-content: flex-end;
   align-items: center;
-  padding: 4px 20px;
+  padding: 4px var(--standard-margin);
 }
 
 .left-container {
   grid-area: left-container;
   background-color: var(--light-yellow);
-  padding-top: 20px;
+  padding-top: var(--standard-margin);
 }
 
+.left-container__logo-div {
+  width: 100%;
+  height: 120px;
+  display: flex;
+  padding: 0 var(--standard-margin)
+}
+
+.left-container__logo-image {
+  width: 50%;
+  height: 100%;
+  background-image: url(../../assets/egg.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.left-container__logo-text-div {
+  width: 50%;
+  display: flex;
+  align-items: flex-end;
+}
+
+.left-container__logo-text {
+  height: auto;
+  font-size: 1.1em;
+  line-height: 1.3em;
+}
+
+
 .left-container__nav {
-  padding: 4px;
+  padding: var(--standard-margin);
 }
 
 .left-container__list-row {
