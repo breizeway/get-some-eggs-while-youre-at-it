@@ -13,10 +13,8 @@ router.use(requireAuth);
 router.post('/', asyncHandler(async (req, res) => {
     const user = req.session.user
     const { name, listId } = req.body
-    console.log("THE LIST ID::::::", listId)
     await taskData.create(user.id, name, listId)
     let tasks = await taskData.byList(listId)
-    console.log("TASKS::::::", tasks)
     tasks = convertTaskData(tasks)
     res.json(tasks)
 }));
