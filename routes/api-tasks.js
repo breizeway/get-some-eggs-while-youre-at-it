@@ -5,7 +5,7 @@ const csrf = require('csurf');
 const bcrypt = require('bcryptjs');
 const router = express.Router();
 const { asyncHandler, convertListData } = require('./utils');
-const { listData, taskData } = require('../data')
+const { listData, taskData, noteData } = require('../data')
 const { requireAuth } = require('../auth');
 
 router.use(requireAuth);
@@ -16,4 +16,15 @@ router.post('/', asyncHandler(async (req, res) => {
     await taskData.create(name)
 }));
 
-module.exports = router 
+router.post('/note', asyncHandler(async (req, res) => {
+    const { note, taskId } = req.body
+    const user = req.session.user
+    const userId = user.id
+    console.log(user.id, note, taskId)
+    const newNote = await noteData.createNote(taskId, note, userId)
+
+    res.json(newNote);
+
+}))
+
+module.exports = router
