@@ -61,10 +61,10 @@
   border-top: 1px solid var(--theme1);
   border-bottom: 1px solid var(--theme1);
   border-left: 1px solid var(--theme1);
-  border-right: var(--theme3);
+  border-right: var(--theme2);
   border-radius: 4px 0 0 4px;
   margin-right: none;
-  background-color: var(--theme3);
+  background-color: var(--theme2);
   padding: 4px;
 }
 
@@ -80,7 +80,7 @@
   background-color: white;
 }
 .navbar__search-button:hover {
-  background-color: var(--theme4);
+  background-color: var(--theme3);
 }
 
 .navbar__search-button {
@@ -90,9 +90,9 @@
   border-top: 1px solid var(--theme1);
   border-bottom: 1px solid var(--theme1);
   border-right: 1px solid var(--theme1);
-  border-left: var(--theme3);
+  border-left: var(--theme2);
   margin-left: none;
-  background-color: var(--theme3);
+  background-color: var(--theme2);
   border-radius: 0 4px 4px 0;
 }
 
