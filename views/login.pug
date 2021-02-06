@@ -3,14 +3,22 @@ extends layout
 append head
   script(src="/javascripts/login.js")
 block content
-  .login-signup-body
-    .login-signup-link: a(href="/users/signup") Sign Up
-    form(action='/users/login' method='post' class='login-signup-form')
-      input(type='hidden' name='_csrf' value=csrfToken)
-      .login-signup-form__div-title: h2 Log In
-      .login-signup-form__div-label: label Email
-      .login-signup-form__div-input: input(type='text' class='login-signup-form__email' name='email' placeholder='example@email.com')
-      .login-signup-form__div-label: label Password
-      .login-signup-form__div-input: input(type='password' class='login-signup-form__password' name='password')
-      .login-signup-form__div-button: button(type='submit') Login
-      .login-signup-form__div-button: button(type='submit' class='login-signup-form__demo-user') Demo User
+  div.login-signup__body
+    div.login-signup__content
+      div.login-signup__logo-div.left-container__logo-div
+        div.login-signup__logo-image.left-container__logo-image
+        div.login-signup__logo-text-div.left-container__logo-text-div
+          h1.login-signup__logo-text.left-container__logo-text Get Some Eggs While You're At It
+      form(action='/users/login' method='post' class='login-signup-form')
+        input(type='hidden' name='_csrf' value=csrfToken)
+        .login-signup-form__div-title: h2 Log In
+        .login-signup-form__div-label: label Email
+        .login-signup-form__div-input: input(type='text' class='login-signup-form__email' name='email' placeholder='example@email.com')
+        .login-signup-form__div-label: label Password
+        .login-signup-form__div-input: input(type='password' class='login-signup-form__password' name='password')
+        .login-signup-form__div-button: button(type='submit' class='login-signup-form__login-button') Login
+        .login-signup-form__div-button: button(type='submit' class='login-signup-form__demo-user') Demo User
+      div.login-signup__link-div
+        span.login-signup__link-span Don't have an account yet?
+        div.login-signup__link-a-div: a(href="/users/signup").login-signup__link-a Sign Up
+
