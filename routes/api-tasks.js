@@ -23,11 +23,18 @@ router.post('/note', asyncHandler(async (req, res) => {
     const { note, taskId } = req.body
     const user = req.session.user
     const userId = user.id
-    console.log(user.id, note, taskId)
     const newNote = await noteData.createNote(taskId, note, userId)
 
     res.json(newNote);
 
+}))
+
+router.delete('/', asyncHandler(async(req, res) => {
+    const { noteId, taskId } = req.body;
+    console.log(noteId, taskId)
+    await noteData.destroyNote(noteId)
+    const notes = await noteData.allNotes(taskId)
+    res.json(notes);
 }))
 
 module.exports = router

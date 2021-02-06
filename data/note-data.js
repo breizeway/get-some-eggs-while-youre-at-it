@@ -11,4 +11,6 @@ const createNote = async (taskId, note, userId) =>{
    return await Note.create({ userId, taskId, note });
 }
 
-module.exports = { allNotes, createNote }
+const destroyNote = async id => await Note.destroy({ where: { id }});
+
+module.exports = { allNotes, createNote, destroyNote }
