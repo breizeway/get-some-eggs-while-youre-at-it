@@ -15,24 +15,21 @@
 
 .left-container__logo-div.login-signup__logo-div {
   width: 100%;
-  height: 300px;
-  margin: var(--standard-margin);
-  padding: 0;
-  flex-direction: column;
-  align-items: flex-start;
+  height: 200px;
+  padding: var(--standard-margin);
 }
 
 .login-signup__logo-image.left-container__logo-image {
-  height: 80%;
-  width: 100%;
+  width: 50%;
 }
 
 
 .login-signup__logo-text-div.left-container__logo-text-div {
   width: 50%;
-  height: 20%;
-  display: flex;
-  align-items: flex-end;
+}
+
+.login-signup__logo-text.left-container__logo-text {
+  font-size: 26px;
 }
 
 .login-signup__link-div {

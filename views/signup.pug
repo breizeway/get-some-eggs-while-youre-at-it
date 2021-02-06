@@ -1,18 +1,25 @@
 extends layout
 block content
-  .login-signup-body
-    .login-signup-link: a(href="/users/login") Login
-    form(action='/users' method='post' class='login-signup-form')
-      input(type='hidden' name='_csrf' value= csrfToken)
-      .login-signup-form__div-title: h2 Sign Up
-      .login-signup-form__div-label: label First Name
-      .login-signup-form__div-input: input(type='text' name='firstName' required)
-      .login-signup-form__div-label: label Last Name
-      .login-signup-form__div-input: input(type='text' name='lastName' required)
-      .login-signup-form__div-label: label Email
-      .login-signup-form__div-input: input(type='text' name='email' placeholder='example@email.com' required)
-      .login-signup-form__div-label: label Password
-      .login-signup-form__div-input: input(type='password' name='password' required)
-      .login-signup-form__div-label: label Confirm Password
-      .login-signup-form__div-input: input(type='password' name='confirmPassword' required)
-      .login-signup-form__div-button: button(type='submit') Sign up
+  div.login-signup__body
+    div.login-signup__content
+      div.login-signup__logo-div.left-container__logo-div
+        div.login-signup__logo-image.left-container__logo-image
+        div.login-signup__logo-text-div.left-container__logo-text-div
+          h1.login-signup__logo-text.left-container__logo-text Get Some Eggs While You're At It
+      form(action='/users' method='post' class='login-signup-form')
+        input(type='hidden' name='_csrf' value= csrfToken)
+        .login-signup-form__div-title: h2 Sign Up
+        .login-signup-form__div-label: label First Name
+        .login-signup-form__div-input: input(type='text' name='firstName' required)
+        .login-signup-form__div-label: label Last Name
+        .login-signup-form__div-input: input(type='text' name='lastName' required)
+        .login-signup-form__div-label: label Email
+        .login-signup-form__div-input: input(type='text' name='email' placeholder='example@email.com' required)
+        .login-signup-form__div-label: label Password
+        .login-signup-form__div-input: input(type='password' name='password' required)
+        .login-signup-form__div-label: label Confirm Password
+        .login-signup-form__div-input: input(type='password' name='confirmPassword' required)
+        .login-signup-form__div-button: button(type='submit') Sign up
+      div.login-signup__link-div
+        span.login-signup__link-span Already have an account?
+        div.login-signup__link-a-div: a(href="/users/login").login-signup__link-a Log In
