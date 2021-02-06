@@ -50,6 +50,7 @@ window.addEventListener('load', (event)=>{
 
   // event listener for delete button
   containerDiv.addEventListener('click', async event => {
+    if (!event.target.id) return;
     const listId = event.target.id.split('_')[2];
 
     try {

@@ -42,6 +42,7 @@ window.addEventListener("load", (event)=> {
 
     // event listener to delete a note
     notesContainer.addEventListener('click', async event => {
+      if (!event.target.id) return;
       const noteId = event.target.id;
 
       try {
