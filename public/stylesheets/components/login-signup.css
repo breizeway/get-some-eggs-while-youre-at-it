@@ -1,26 +1,70 @@
-.login-signup-body {
+.login-signup__body {
   width: 100%;
   height: 100%;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
+  background-color: var(--theme2);
 }
 
-.login-signup-link {
+.login-signup__content {
   width: 25%;
   display: flex;
-  justify-content: flex-end;
-  margin-bottom: 12px;
+  flex-direction: column;
+}
+
+.left-container__logo-div.login-signup__logo-div {
+  width: 100%;
+  height: 300px;
+  margin: var(--standard-margin);
+  padding: 0;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.login-signup__logo-image.left-container__logo-image {
+  height: 80%;
+  width: 100%;
+}
+
+
+.login-signup__logo-text-div.left-container__logo-text-div {
+  width: 50%;
+  height: 20%;
+  display: flex;
+  align-items: flex-end;
+}
+
+.login-signup__link-div {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px var(--standard-margin);
+  font-size: 13px;
+}
+
+.login-signup__link-span {
+  color: var(--faded-text);
+  font-size: inherit;
+}
+
+.login-signup__link-a-div {
+  font-size: inherit;
+}
+
+.login-signup__link-a {
+  color: black;
+  font-size: inherit;
 }
 
 .login-signup-form {
 	display: flex;
 	flex-direction: column;
-  width: 25%;
-  box-shadow: 1px 1px 2px gray;
+  width: 100%;
+  box-shadow: 1px 1px 1px lightgray;
 	border-radius: 12px;
-	padding: 12px;
+	padding: var(--standard-margin);
+  background-color: white;
 }
 
 .login-signup-form div,
@@ -28,6 +72,31 @@
 .login-signup-form input,
 .login-signup-form button {
   width: 100%;
+  height: 30px;
+}
+
+.login-signup-form input {
+  border: none;
+  border-bottom: 1px solid lightgray;
+}
+
+.login-signup-form *:focus {
+  outline: none;
+}
+
+.login-signup-form button {
+  border-radius: 4px;
+  border: none;
+  box-shadow: 1px 1px 1px lightgray;
+}
+
+.login-signup-form button:hover {
+  cursor: pointer;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.05) 0 0);
+}
+
+.login-signup-form button:active {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.1) 0 0);
 }
 
 .login-signup-form__div-title {
@@ -37,5 +106,9 @@
 
 .login-signup-form__div-label,
 .login-signup-form__div-button {
-  margin-top: 12px;
+  margin-top: var(--standard-margin);
+}
+
+.login-signup-form__login-button {
+  background-color: var(--theme1);
 }
