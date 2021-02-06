@@ -1,7 +1,7 @@
 extends layout
 
 append head
-  script(src="/javascripts/left-container.js")
+  script(src='/javascripts/left-container.js')
 
 block content
   .navigation-body
@@ -10,11 +10,11 @@ block content
       .navbar__search-div
         form(action='/search'  method='get' class='navbar__search-form')
           input(class='navbar__search-input' type='text' placeholder='Enter search here...' required)
-          button(class='navbar__search-button' type='submit') Search
+          button(class='navbar__search-button' type='submit'): i(class='fa fa-search')
         .navbar__search-error
           ul
       nav.navbar__nav
-        a(href='/users/logout') Logout
+        a(href='/users/logout'): i(class='fa fa-sign-out fa-2x')
     .left-container
       div.left-container__logo-div
         div.left-container__logo-image
