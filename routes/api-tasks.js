@@ -32,7 +32,6 @@ router.post('/note', asyncHandler(async (req, res) => {
 router.delete('/', asyncHandler(async(req, res) => {
     const { noteId, taskId } = req.body;
     console.log(noteId, taskId)
-    // listId = parseInt(listId)
     await noteData.destroyNote(noteId)
     const notes = await noteData.allNotes(taskId)
     res.json(notes);

@@ -22,26 +22,22 @@ window.addEventListener("load", (event)=> {
 
     // event listner for adding a note
     noteForm.addEventListener('submit', async (event) => {
-        event.preventDefault();
-
-        const note = textarea.value;
-        // const taskId = formData.get('id')
-        textarea.value = '';
-
-        try {
-            const res = await fetch('/api/tasks/note', {
-                method: 'POST',
-                headers: {
-                  'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({ note, taskId })
-        })
-            const newNote = await res.json();
-            createNote(newNote);
-
-        } catch (error) {
-            console.log(error)
-        }
+      event.preventDefault();
+      const note = textarea.value;
+      textarea.value = '';
+      try {
+          const res = await fetch('/api/tasks/note', {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json'
+              },
+              body: JSON.stringify({ note, taskId })
+      })
+          const newNote = await res.json();
+          createNote(newNote);
+      } catch (error) {
+          console.log(error)
+      }
     });
 
     // event listener to delete a note
