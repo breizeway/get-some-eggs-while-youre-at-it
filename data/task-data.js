@@ -28,4 +28,7 @@ const byId = async (taskId) => {
 const create = async (userId, name, listId) => await Task.create({userId, name, listId});
 
 
-module.exports = { byList, create, byId }
+const destroyTask = async id => await Task.destroy({ where: { id } });
+
+
+module.exports = { byList, create, byId, destroyTask }

@@ -14,4 +14,4 @@ block main-container
       each task in tasks
         div.main-container__task-row
           a(id=task.htmlId href=task.href)= task.name
-          div.main-container__delete-button-div: div.main-container__delete-icon: i(class='fa fa-trash')
+          div.main-container__delete-button-div: div.main-container__delete-icon: i(id=task.deleteHtmlId class='fa fa-trash')
