@@ -45,7 +45,7 @@ window.addEventListener("load", (event)=> {
       const noteId = event.target.id;
 
       try {
-        const res = await fetch('/api/tasks', {
+        const res = await fetch('/api/tasks/note', {
           method: 'DELETE',
           headers: {
             'Content-Type': 'application/json'

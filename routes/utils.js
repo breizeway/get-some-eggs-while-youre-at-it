@@ -33,6 +33,7 @@ const convertTaskData = taskData => {
         htmlId: `task_${task.id}`,
         id: task.id,
         name: task.name,
+        deleteHtmlId: `task_delete_${task.id}`,
         href: `/tasks/${task.id}`,
         listId: task.listId
     }));
