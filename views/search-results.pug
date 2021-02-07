@@ -1,0 +1,11 @@
+extends nav-lists
+
+block main-container
+  .main-container__name-div
+    h2.main-container__name-span Here's what you need to get done #{user.firstName}...
+  .main-container__tasks
+    div.main-container__tasks-list
+      each task in tasks
+        div.main-container__task-row
+          a(id=task.id href=task.searchHref)= task.name
+          div.main-container__delete-button-div: div.main-container__delete-icon
