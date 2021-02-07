@@ -11,7 +11,7 @@ block main-container
       input(type='hidden' name='_csrf' value=csrfToken)
       input(type='hidden' name='listId' id='listId' value=listId)
       input(type='text' placeholder='new task...' name='name' required class='main-container__task-input')
-      button(type='submit' class='main-container__task-button') Add Task
+      button(type='submit' class='main-container__task-button'): i(class='fa fa-plus')
     div.main-container__tasks-list
       each task in tasks
         div.main-container__task-row

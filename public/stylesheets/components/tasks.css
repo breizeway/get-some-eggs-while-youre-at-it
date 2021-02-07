@@ -64,3 +64,34 @@
   justify-content: flex-end;
   align-items: center;
 }
+
+.main-container__new-task {
+  overflow: hidden;
+  width: 360px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.main-container__task-input {
+  border: none;
+  border-bottom: 1px solid lightgray;
+  height: var(--row-height);
+  padding: 0 0 0 10px;
+  background-color: inherit;
+  width: 90%;
+}
+
+.main-container__task-input:focus {
+  background-color: white;
+}
+
+.main-container__task-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-grow: 1;
+  background-color: inherit;
+  border: none;
+  box-shadow: none;
+  border-radius: 0;
+}
