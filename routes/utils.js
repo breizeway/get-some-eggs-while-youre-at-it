@@ -1,6 +1,7 @@
 const csrf = require('csurf');
 const { validationResult } = require('express-validator')
 const csrfProtection = csrf({ cookie: true });
+const { taskData, listData, noteData } = require('../data')
 const asyncHandler = (handler) => (req, res, next) => handler(req, res, next).catch(next);
 
 const handleValidationErrors = (req, res, next) => {
@@ -40,5 +41,41 @@ const convertTaskData = taskData => {
     }));
 }
 
+const destroyNotes = async listId => {
+    const tasks = await taskData.byList(listId);
+    if(tasks.length) {
+        tasks.forEach(async task => {
+        const notes = await noteData.allNotes(task.id);
 
-module.exports = { asyncHandler, csrfProtection, handleValidationErrors, convertListData, convertTaskData };
+            if (notes.length){
+                notes.forEach(async note => {
+                await noteData.destroyNote(note.id)
+                })
+            }
+        })
+    } else {
+        return;
+    }
+}
+
+const destroyTasks = async listId => {
+    const tasks = await taskData.byList(listId);
+    if(tasks.length) {
+        tasks.forEach(async task => {
+        const notes = await taskData.destroyTask(task.id)
+        })
+    } else {
+        return;
+    }
+}
+
+
+module.exports = {
+    asyncHandler,
+    csrfProtection,
+    handleValidationErrors,
+    convertListData,
+    convertTaskData,
+    destroyNotes,
+    destroyTasks
+ };

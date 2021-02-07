@@ -12,12 +12,15 @@ window.addEventListener('load', (event)=>{
       const rowDiv = document.createElement('div')
       rowDiv.classList.add('left-container__list-row');
       rowDiv.innerHTML = `
-        <a id="${list.id}" href="${list.href}">${list.name}</a>
-        <div class="left-container__delete-button-div">
-          <div class="left-container__delete-icon">
-            <i id="${list.deleteHtmlId}" class="fa fa-trash"></i>
-          </div>
-        </div>`
+      <a id="${list.id}" href="${list.href}">${list.name}</a>
+      <div class="left-container__delete-button-div">
+        <div class="left-container__delete-icon">
+          <form action="/lists" method="post">
+            <input type="hidden" name="listId" value="${list.id}">
+            <button class="left-container__hidden-wrapper"><i id="${list.deleteHtmlId}" class="fa fa-trash"></i></button>
+          </form>
+        </div>
+      </div>`
 
       containerDiv.appendChild(rowDiv)
     })
