@@ -1,0 +1,69 @@
+.edit-container__notes {
+    margin: 20px 20px 20px 0;
+    padding: 20px;
+    background-color: white;
+    border-radius: 20px;
+    height: 100%;
+  }
+
+  .edit-container__note-list {
+    padding: 0;
+    margin: 10px 0;
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+  }
+
+  .edit-container__note-row {
+    display: flex;
+    justify-content: space-between;
+    width: 50%;
+    height: 30px;
+  }
+
+  .edit-container__note-row .edit-container__note-content {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    text-decoration-line: none;
+  }
+
+  .edit-container__note {
+    border: 1px solid gray;
+    border-radius: 4px;
+    margin-right: 4px;
+    padding: 4px;
+  }
+
+  .edit-container__new-note {
+      display: flex;
+      flex-direction: column;
+      width: 50%;
+      justify-content: flex-start;
+  }
+
+ .edit-container__save-button {
+     width: 10%;
+     height: 30px;
+ }
+
+  .edit-container__task-name-div {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+  }
+
+  .edit-container__delete-button-div {
+    height: auto;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+
+  .fa-trash {
+    font-size: 20px;
+  }
+
+  .fa-trash:hover {
+    cursor: pointer;
+  }

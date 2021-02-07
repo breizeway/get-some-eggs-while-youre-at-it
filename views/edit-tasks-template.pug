@@ -1,0 +1,19 @@
+extends nav-lists
+
+append head
+  script(src="/javascripts/task-edit.js")
+
+block main-container
+  div.edit-container__notes
+    h2= task.name
+    form(id=`edit_${task.id}` class='edit-container__new-note')
+      input(type='hidden' name='id' value= task.id)
+      textarea(id='new-note' class='edit-container__note' type='text' name='note' placeholder='Add a note...' required)
+      button(class='edit-container__save-button' type='submit') Save
+    .edit-container__notes
+      .edit-container__note-list
+        each note in notes
+          div.edit-container__note-row
+            div(class='edit-container__note-content')=note.note
+            div(class='edit-container__delete-button-div')
+              div.edit-container__delet-icon: i(class='fa fa-trash' id= note.id)

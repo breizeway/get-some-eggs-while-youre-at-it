@@ -4,16 +4,15 @@ append head
   script(src="/javascripts/task-edit.js")
 
 block main-container
-  div.edit-container__notes
-    h2= task.name
-    form(id=`edit_${task.id}` class='edit-container__new-note')
-      input(type='hidden' name='id' value= task.id)
-      textarea(id='new-note' class='edit-container__note' type='text' name='note' placeholder='Add a note...' required)
-      button(class='edit-container__save-button' type='submit') Save
-    .edit-container__notes
-      .edit-container__note-list
-        each note in notes
-          div.edit-container__note-row
-            div(class='edit-container__note-content')=note.note
-            div(class='edit-container__delete-button-div')
-              div.edit-container__delet-icon: i(class='fa fa-trash' id= note.id)
+  .main-container__name-div
+    h2.main-container__name-span= task.name
+  .main-container__tasks
+    form(class='edit-container__new-note' id=`edit_${task.id}`)
+      input(type='hidden' name='id' id='taskId' value=task.id)
+      textarea(id='new-note' class='main-container__task-input' type='text' name='note' placeholder='Add a note...' required)
+      button(type='submit' class='main-container__task-button'): i(class='fa fa-plus')
+    div(class='main-container__tasks-list edit-container__note-list')
+      each note in notes
+        div(class='edit-container__note-row')
+          div(class='edit-container__note-content')= note.note
+            div.main-container__delete-button-div: div.main-container__delete-icon: i(id=note.id class='fa fa-trash')
