@@ -4,15 +4,16 @@ append head
   script(src="/javascripts/task-edit.js")
 
 block main-container
-  .main-container__name-div
-    h2.main-container__name-span= task.name
-  .main-container__tasks
+  .edit-container__name-div
+    h2.edit-container__name-span= task.name
+  .edit-container__notes
     form(class='edit-container__new-note' id=`edit_${task.id}`)
       input(type='hidden' name='id' id='taskId' value=task.id)
-      textarea(id='new-note' class='main-container__task-input' type='text' name='note' placeholder='Add a note...' required)
-      button(type='submit' class='main-container__task-button'): i(class='fa fa-plus')
-    div(class='main-container__tasks-list edit-container__note-list')
+      textarea(id='new-note' class='edit-container__textarea' type='text' name='note' placeholder='Add a note...' required)
+      button(type='submit' class='edit-container__note-button'): i(class='fa fa-plus')
+    div(class='edit-container__note-list')
       each note in notes
         div(class='edit-container__note-row')
-          div(class='edit-container__note-content')= note.note
-            div.main-container__delete-button-div: div.main-container__delete-icon: i(id=note.id class='fa fa-trash')
+          div(class='edit-container__note-content')
+            p.edit-container__p= note.note
+            div.edit-container__delete-button-div: div.edit-container__delete-icon: i(id=note.id class='fa fa-trash')

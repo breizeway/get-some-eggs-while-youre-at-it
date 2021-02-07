@@ -11,7 +11,7 @@ window.addEventListener("load", (event)=> {
 
      subContainer.classList.add('edit-container__note-row')
      subContainer.innerHTML =`
-     <div class="edti-container__note-content">${newNote.note}
+     <div class="edit-container__note-content">${newNote.note}
        <div class="main-container__delete-button-div">
          <div class="main-container__delete-icon">
            <i id="${newNote.id}" class="fa fa-trash"></i>
