@@ -1,4 +1,5 @@
 # Welcome to Get Some Eggs While You're At It
+
 ![logo](/images/logo.png)
 
 Get Some Eggs While You're At It is a Web-based task and time-management app.
@@ -41,3 +42,8 @@ As well as a sign up page:
 ### Task and List View
 Once a user creates an account they will be redirected to their personal tasks page where they can view all created To-do lists and tasks that pertain to those lists.
   
+
+
+
+## Technologies Used
+
