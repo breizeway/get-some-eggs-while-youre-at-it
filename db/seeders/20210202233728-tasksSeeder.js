@@ -25,7 +25,7 @@ module.exports = {
       { name: 'get a loaf of bread', startDate: '2021-02-02', dueDate: '2021-02-03', priority: 2, estimate: 2, listId: 16, userId: 6, giveToId: 5, createdAt: new Date(), updatedAt: new Date() },
       { name: 'get a variety of fruit', startDate: '2021-02-02', dueDate: '2021-02-03', priority: 3, estimate: 3, listId: 16, userId: 6, giveToId: 6, createdAt: new Date(), updatedAt: new Date() },
       { name: 'get pancake mix', startDate: '2021-02-02', dueDate: '2021-02-03', priority: 0, estimate: 1, listId: 16, userId: 6, giveToId: null, createdAt: new Date(), updatedAt: new Date() },
-      { name: 'get a bag of flower', startDate: '2021-02-02', dueDate: '2021-02-03', priority: 2, estimate: 2, listId: 16, userId: 6, giveToId: 1, createdAt: new Date(), updatedAt: new Date() },
+      { name: 'get a bag of flour', startDate: '2021-02-02', dueDate: '2021-02-03', priority: 2, estimate: 2, listId: 16, userId: 6, giveToId: 1, createdAt: new Date(), updatedAt: new Date() },
       { name: 'buy a sack of rice', startDate: '2021-02-02', dueDate: '2021-02-03', priority: 3, estimate: 3, listId: 16, userId: 6, giveToId: 2, createdAt: new Date(), updatedAt: new Date() },
       { name: 'buy a box of cookies', startDate: '2021-02-02', dueDate: '2021-02-03', priority: 0, estimate: 1, listId: 16, userId: 6, giveToId: 3, createdAt: new Date(), updatedAt: new Date() },
     ], {});
