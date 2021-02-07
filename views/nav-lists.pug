@@ -8,8 +8,8 @@ block content
     div.navbar
       .navbar__name-div
       .navbar__search-div
-        form(action='/search'  method='get' class='navbar__search-form')
-          input(class='navbar__search-input' type='text' placeholder='Enter search here...' required)
+        form(action='/tasks/search'  method='post' class='navbar__search-form')
+          input(class='navbar__search-input' type='text' name='search' placeholder='Enter search here...' required)
           button(class='navbar__search-button' type='submit'): i(class='fa fa-search')
         .navbar__search-error
           ul
