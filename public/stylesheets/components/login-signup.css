@@ -77,10 +77,6 @@
   border-bottom: 1px solid lightgray;
 }
 
-.login-signup-form *:focus {
-  outline: none;
-}
-
 .login-signup-form button {
   border-radius: 4px;
   border: none;

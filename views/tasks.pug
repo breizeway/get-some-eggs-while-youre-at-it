@@ -5,15 +5,16 @@ append head
 
 block main-container
   .main-container__name-div
-    h2.main-container__name-span Here's what you need to get done #{user.firstName}...
+    h2.main-container__name-span Here's what you need to get done, #{user.firstName}...
   .main-container__tasks
     form(class='main-container__new-task')
       input(type='hidden' name='_csrf' value=csrfToken)
       input(type='hidden' name='listId' id='listId' value=listId)
-      input(type='text' placeholder='Create a new task...' name='name' required class='main-container__task-input')
+      input(type='text' placeholder='new task...' name='name' required class='main-container__task-input')
       button(type='submit' class='main-container__task-button') Add Task
     div.main-container__tasks-list
       each task in tasks
         div.main-container__task-row
+          div.main-container__checkbox-div: input(type='checkbox').main-container__checkbox
           a(id=task.htmlId href=task.href)= task.name
           div.main-container__delete-button-div: div.main-container__delete-icon: i(id=task.deleteHtmlId class='fa fa-trash')
