@@ -6,11 +6,11 @@ append head
 block content
   .navigation-body
     div.navbar
-      .navbar__name-div
-        div
+      .navbar__menu-div
+        div.navbar__menu-div-icon-div: i(class='fa fa-bars')
       .navbar__search-div
         form(action='/search'  method='get' class='navbar__search-form')
-          input(class='navbar__search-input' type='text' placeholder='Enter search here...' required)
+          input(class='navbar__search-input' type='text' placeholder='search...' required)
           button(class='navbar__search-button' type='submit'): i(class='fa fa-search')
         .navbar__search-error
           ul
@@ -31,7 +31,8 @@ block content
                 div.left-container__delete-button-div: div.left-container__delete-icon: i(id=list.deleteHtmlId class='fa fa-trash')
           .left-container__add-list-div
             form(class='left-container__add-list-form')
-              input(class='left-container__list-input' name='name' type='text' placeholder='Create a new list...' required)
-              button(type='submit' class='left-container__list-button') Create
+              input(class='left-container__list-input' name='name' type='text' placeholder='new list...' required)
+              button(type='submit' class='left-container__list-button')
+                i(class='fa fa-plus')
     .main-container
       block main-container
