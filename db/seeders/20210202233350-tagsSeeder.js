@@ -12,6 +12,7 @@ module.exports = {
       { name: 'ultra violet', userId: 3, createdAt: new Date(), updatedAt: new Date() },
       { name: 'infra red', userId: 4, createdAt: new Date(), updatedAt: new Date() },
       { name: 'indigo', userId: 5, createdAt: new Date(), updatedAt: new Date() },
+      { name: 'sky blue', userId: 6, createdAt: new Date(), updatedAt: new Date() },
     ], {});
   },
 
