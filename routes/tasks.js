@@ -17,4 +17,9 @@ router.get('/:id', asyncHandler(async (req, res) => {
     res.render('edit-tasks', { task, lists, notes });
 }));
 
+router.get('/search', asyncHandler(async (req, res) => {
+    const { search } = req.body
+    const user = req.session.user
+
+}))
 module.exports = router;

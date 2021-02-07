@@ -1,4 +1,6 @@
 const { Task } = require('../db/models')
+const { Sequelize } = require('../db/models');
+const Op = Sequelize.Op;
 
 
 const byList = async (...listId) => {
@@ -25,10 +27,22 @@ const byId = async (taskId) => {
 //   )
 // }
 
+const searchTasks = async (searchPhrase, userId) => {
+  return await Task.findAll({
+    where: {
+      [Op.and]: [
+        { name: { [Op.iLike]: `%${searchPhrase}%`} },
+        { userId },
+      ]
+    }
+  });
+
+}
+
 const create = async (userId, name, listId) => await Task.create({userId, name, listId});
 
 
 const destroyTask = async id => await Task.destroy({ where: { id } });
 
 
-module.exports = { byList, create, byId, destroyTask }
+module.exports = { byList, create, byId, destroyTask, searchTasks }
