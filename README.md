@@ -41,30 +41,36 @@ As well as a sign up page:
 
 ### Task and List View
 Once a user creates an account they will be redirected to their personal tasks page where they can view all created To-do lists and tasks that pertain to those lists:
+
 ![task/list](/images/task-list.png)
 
 ### Lists
 
 To add a new lists for tasks to be stored in, simply type in the name of the list under the list view on the left, and click the + button to add the list to your list view:
+
 ![lists](/images/lists.png)
 
 ## Tasks
 
 To add a new task, first choose the list you would like to add the task to. From there, type in your To-do item or name of task in the add a task box and click the + button to add that selected task to your list:
+
 ![tasks](/images/tasks.png)
 
 ## Notes
 
 Users also have the ability to add and delete notes to a selected task. This allows you to add more information about the current task in progress. To add a note, simply click on the task, you will be directed to a view where you can add a note. Type in a brief description or explination about the current task, then hit save to add that note to the task. You can always go back and look at all notes added to a task by clicking on the task again:
+
 ![notes](/images/notes.png)
 
 
 ## Search
 
 Having trouble searching for a specific task? Have no fear, our search bar allows you to search for any task you have added in any list! Simply search for keywords that describe the task you're looking for an let out search do the rest:
+
 ![search](/images/search.png)
 
 ## Logout
 
 Done completing tasks for the day? Need to logout and take a break? Click the logout button at the top right hand corner of the app. Don't worry, we save all you're unfinished tasks for you to come back and complete later, just sign back in when you're ready to work again and all of you lists and task will be waiting for you:
+
 ![logout](/images/logout.png)
