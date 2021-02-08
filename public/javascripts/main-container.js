@@ -9,14 +9,19 @@ window.addEventListener("load", (event) => {
 
         tasks.forEach(task => {
             const rowDiv = document.createElement('div')
-            rowDiv.classList.add('main-container__task-row');
+            rowDiv.classList.add('main-container__task-row-wrapper');
             rowDiv.innerHTML = `
-          <a id="${task.htmlId}" href="${task.href}">${task.name}</a>
-          <div class="main-container__delete-button-div">
-            <div class="main-container__delete-icon">
-              <i id="${task.deleteHtmlId}" class="fa fa-trash"></i>
-            </div>
-          </div>`
+            <div class="main-container__task-row">
+                <div class="main-container__checkbox-div">
+                    <input id="${task.checkboxId}" type="checkbox" class="main-container__checkbox">
+                </div>
+                <a id="${task.htmlId}" href="${task.href}">${task.name}</a>
+                <div class="main-container__delete-button-div">
+                    <div class="main-container__delete-icon">
+                        <i id="${task.deleteHtmlId}" class="fa fa-trash"></i>
+                    </div>
+                </div>
+            </div>`
 
          taskDiv.appendChild(rowDiv)
         })

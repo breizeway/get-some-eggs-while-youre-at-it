@@ -4,6 +4,13 @@ mixin formBody(list)
   button(class='left-container__hidden-wrapper')
     i(class='fa fa-trash')
 
+mixin selected(list, selectedListId)
+  if list.id == selectedListId
+    a(id=list.listId href=list.href class='selected-list')= list.name
+  else
+    a(id=list.listId href=list.href class='not-selected-list')= list.name
+
+
 append head
   script(src='/javascripts/left-container.js')
 
@@ -12,8 +19,10 @@ block content
     div.navbar
       .navbar__menu-div
         div.navbar__menu-div-icon-div: i(class='fa fa-bars')
+        div.navbar__menu-div-list_div: h2(class='selected-list hidden')= listInfo.name
       .navbar__search-div
         form(action='/tasks/search'  method='post' class='navbar__search-form')
+          input(type="hidden" value=selectedListId name="listId")
           input(class='navbar__search-input' type='text' name='search' placeholder='search...' required)
           button(class='navbar__search-button' type='submit'): i(class='fa fa-search')
         .navbar__search-error
@@ -31,13 +40,13 @@ block content
           div.left-container__list-row-container
             each list in lists
               div.left-container__list-row
-                a(href=list.href)= list.name
+                +selected(list, selectedListId)
                 div.left-container__delete-button-div: div.left-container__delete-icon
                   if currentList
-                    form(action='/lists' method='post')
+                    form(action='/lists' method='post' class='left-container__hidden-form')
                       +formBody(list)
                   else
-                    form(id=list.deleteHtmlId action='/lists' method='post')
+                    form(id=list.deleteHtmlId action='/lists' method='post' class='left-container__hidden-form')
                       +formBody(list)
           .left-container__add-list-div
             form(class='left-container__add-list-form')

@@ -1,8 +1,8 @@
 <!-- for left-container repopulating -->
-<a id="${list.id}" href="${list.href}">${list.name}</a>
+<a id="${list.listId}" href="${list.href}">${list.name}</a>
 <div class="left-container__delete-button-div">
   <div class="left-container__delete-icon">
-    <form action="/lists" method="post">
+    <form action="/lists" method="post" class="left-container__hidden-form">
       <input type="hidden" name="listId" value="${list.id}">
       <button class="left-container__hidden-wrapper"><i class="fa fa-trash"></i></button>
     </form>
@@ -19,10 +19,16 @@
   </div>
 </div>
 
-<!-- for task-edit repopulating -->
-<a id="${task.htmlId}" href="${task.href}">${task.name}</a>
-<div class="main-container__delete-button-div">
-  <div class="main-container__delete-icon">
-    <i id="${task.deleteHtmlId}" class="fa fa-trash"></i>
+<!-- for task-list repopulating -->
+
+<div class="main-container__task-row">
+  <div class="main-container__checkbox-div">
+    <input id="${task.checkboxId}" type="checkbox" class="main-container__checkbox">
+  </div>
+  <a id="${task.htmlId}" href="${task.href}">${task.name}</a>
+  <div class="main-container__delete-button-div">
+    <div class="main-container__delete-icon">
+      <i id="${task.deleteHtmlId}" class="fa fa-trash"></i>
+    </div>
   </div>
 </div>

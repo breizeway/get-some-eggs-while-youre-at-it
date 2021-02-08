@@ -6,6 +6,8 @@ block main-container
   .main-container__tasks
     div.main-container__tasks-list
       each task in tasks
-        div.main-container__task-row
-          a(id=task.id href=task.searchHref)= task.name
-          div.main-container__delete-button-div: div.main-container__delete-icon
+        div.main-container__task-row-wrapper
+          div.main-container__task-row
+            div.main-container__checkbox-div: input(id=task.checkboxId type='checkbox').main-container__checkbox
+            a(id=task.htmlId href=task.href)= task.name
+            div.main-container__delete-button-div

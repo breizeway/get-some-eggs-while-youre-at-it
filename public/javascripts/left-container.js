@@ -16,7 +16,7 @@ window.addEventListener('load', (event)=>{
       <a id="${list.id}" href="${list.href}">${list.name}</a>
       <div class="left-container__delete-button-div">
         <div class="left-container__delete-icon">
-          <form action="/lists" method="post">
+          <form action="/lists" method="post" class="left-container__hidden-form">
             <input type="hidden" name="listId" value="${list.id}">
             <button class="left-container__hidden-wrapper"><i class="fa fa-trash"></i></button>
           </form>
@@ -74,6 +74,25 @@ window.addEventListener('load', (event)=>{
     }
   })
 
+  const menu = document.querySelector('.navbar__menu-div-icon-div');
+  const selectedList = document.querySelector('.selected-list');
+  const leftContainer = document.querySelector('.left-container');
+  const mainContainer = document.querySelector('.main-container');
+  menu.addEventListener('click', event => {
+
+    const classes = Array.from(selectedList.classList)
+    if (classes.includes('hidden')) {
+      selectedList.classList.remove('hidden');
+      leftContainer.classList.add('hidden');
+      mainContainer.classList.add('main-full-width');
+
+    } else {
+      selectedList.classList.add('hidden');
+      leftContainer.classList.remove('hidden');
+      mainContainer.classList.remove('main-full-width');
+    }
+  })
+
 
   // show trash icon on mouseover event
   // containerDiv.addEventListener('mouseover', async event => {
@@ -81,8 +100,8 @@ window.addEventListener('load', (event)=>{
   //   event.path.forEach(ele => {
   //     if (ele.id) listId = ele.id.split('_')[1]
   //   });
+  //   console.log(':::LISTID::: ', listId);
 
   //   let trashID = document.getElementById(`.list_delete_${listId}`)
-  //   console.log(':::TRASHID::: ', trashID);
   // })
 })
