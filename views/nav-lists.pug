@@ -42,7 +42,7 @@ block content
               div.left-container__list-row
                 +selected(list, selectedListId)
                 div.left-container__delete-button-div: div.left-container__delete-icon
-                  if currentList
+                  if list.currentList
                     form(action='/lists' method='post' class='left-container__hidden-form')
                       +formBody(list)
                   else
