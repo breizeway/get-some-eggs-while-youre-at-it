@@ -22,8 +22,9 @@ router.get('/:id', asyncHandler(async (req, res) => {
 router.post('/search', asyncHandler(async (req, res) => {
     const { search } = req.body
     const user = req.session.user
+    const currUser = await taskData.userById(user.id)
     const currentList = { name: 'Search results'}
-    let  searchTitle = `Here's what you need to get done ${user.firstName}...`
+    let  searchTitle = `Here's what you need to get done ${currUser.firstName}...`
 
     let tasks = await taskData.searchTasks(search, user.id);
     tasks = convertTaskData(tasks);

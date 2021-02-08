@@ -1,5 +1,5 @@
 .edit-container__notes {
-  animation: transitionIn 750ms;
+  animation: transitionIn 500ms;
 }
 
 @keyframes transitionIn {
