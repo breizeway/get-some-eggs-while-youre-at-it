@@ -1,5 +1,27 @@
 extends layout
 
+mixin emailError(err)
+  if errors.email
+    .login-signup-form__div-label: label Email
+    .login-signup-form__div-input: input(type='text' class='login-signup-form__email red-placeholder' name='email' placeholder= err.email)
+  else if email
+    .login-signup-form__div-label: label Email
+    .login-signup-form__div-input: input(type='text' class='login-signup-form__email' name='email' placeholder= 'Example@email.com' value= email)
+  else
+    .login-signup-form__div-label: label Email
+    .login-signup-form__div-input: input(type='text' class='login-signup-form__email' name='email' placeholder= 'Example@email.com')
+
+mixin passwordError(err)
+  if errors.password
+    .login-signup-form__div-label: label Password
+    .login-signup-form__div-input: input(type='password' class='login-signup-form__password red-placeholder' name='password' placeholder= err.password)
+  else if password
+    .login-signup-form__div-label: label Password
+    .login-signup-form__div-input: input(type='password' class='login-signup-form__password' name='password' value= password)
+  else
+    .login-signup-form__div-label: label Password
+    .login-signup-form__div-input: input(type='password' class='login-signup-form__password' name='password')
+
 append head
   script(src="/javascripts/login.js")
 block content
@@ -12,13 +34,16 @@ block content
       form(action='/users/login' method='post' class='login-signup-form')
         input(type='hidden' name='_csrf' value=csrfToken)
         .login-signup-form__div-title: h2 Log In
-        .login-signup-form__div-label: label Email
-        .login-signup-form__div-input: input(type='text' class='login-signup-form__email' name='email' placeholder='example@email.com')
-        .login-signup-form__div-label: label Password
-        .login-signup-form__div-input: input(type='password' class='login-signup-form__password' name='password')
+        if errors
+          +emailError(errors)
+          +passwordError(errors)
+        else
+          .login-signup-form__div-label: label Email
+          .login-signup-form__div-input: input(type='text' class='login-signup-form__email' name='email' placeholder='example@email.com')
+          .login-signup-form__div-label: label Password
+          .login-signup-form__div-input: input(type='password' class='login-signup-form__password' name='password')
         .login-signup-form__div-button: button(type='submit' class='login-signup-form__login-button') Login
         .login-signup-form__div-button: button(type='submit' class='login-signup-form__demo-user') Demo User
       div.login-signup__link-div
         span.login-signup__link-span Don't have an account yet?
         div.login-signup__link-a-div: a(href="/users/signup").login-signup__link-a Sign Up
-

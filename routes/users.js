@@ -4,7 +4,7 @@ const { check } = require('express-validator');
 const csrf = require('csurf');
 const bcrypt = require('bcryptjs');
 const router = express.Router();
-const { asyncHandler, csrfProtection, handleValidationErrors } = require('./utils');
+const { asyncHandler, csrfProtection, handleValidationErrors, loginErrorHandler } = require('./utils');
 const { listData } = require('../data');
 
 const userSignupValidation = [
@@ -16,7 +16,7 @@ const userSignupValidation = [
     .withMessage("Please provide a Last Name"),
   check('email')
     .exists({ checkFalsy: true })
-    .withMessage("Please provide a email address")
+    .withMessage("Please provide an email address")
     .isEmail()
     .withMessage("Please provide a valid email address"),
   check('password')
@@ -32,8 +32,6 @@ const userSignupValidation = [
 
 const userLoginValidation = [
   check('email')
-    .exists({ checkFalsy: true })
-    .withMessage("Please provide a email address")
     .isEmail()
     .withMessage("Please provide a valid email address"),
   check('password')
@@ -76,20 +74,23 @@ router.get('/login', csrfProtection, (req, res) => {
 router.post(
   '/login',
   userLoginValidation,
+  loginErrorHandler,
   csrfProtection,
   asyncHandler(async (req, res) => {
     const { email, password } = req.body;
-    const user = await User.findOne({ where: { email: email } });
-    const isPassword = await bcrypt.compare(password, user.password);
-    if (isPassword) {
-      // log user in
-      console.log('session before login', req.session);
-      req.session.user = { id: user.id, email: user.email };
-      console.log('session after login', req.session);
-      // redirect to index
-      res.redirect('/lists');
+    if (req.body.errors) {
+      res.render('login', { csrfToken: req.csrfToken(), errors: req.body.errors, email, password })
     } else {
-      res.render('login', { csrfToken: req.csrfToken(), errors: ['Invalid credentials, try again!'] });
+      const user = await User.findOne({ where: { email: email } });
+      const isPassword = await bcrypt.compare(password, user.password);
+      if (isPassword) {
+
+        req.session.user = { id: user.id, email: user.email };
+        res.redirect('/lists');
+
+      } else {
+        res.render('login', { csrfToken: req.csrfToken(), errors: ['Invalid credentials, try again!'] });
+      }
     }
   })
 );

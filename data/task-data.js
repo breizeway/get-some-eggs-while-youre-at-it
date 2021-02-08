@@ -1,4 +1,4 @@
-const { Task } = require('../db/models')
+const { Task, User } = require('../db/models')
 const { Sequelize } = require('../db/models');
 const Op = Sequelize.Op;
 
@@ -15,6 +15,9 @@ const byId = async (taskId) => {
   return await Task.findByPk(taskId)
 }
 
+const userById = async (userId) => {
+  return await User.findByPk(userId)
+}
 // const changeList = async (tasks, user) => {
 //   await Task.update(
 //     {
@@ -45,4 +48,4 @@ const create = async (userId, name, listId) => await Task.create({userId, name, 
 const destroyTask = async id => await Task.destroy({ where: { id } });
 
 
-module.exports = { byList, create, byId, destroyTask, searchTasks }
+module.exports = { byList, create, byId, destroyTask, searchTasks, userById }

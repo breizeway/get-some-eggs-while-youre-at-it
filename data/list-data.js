@@ -10,6 +10,10 @@ const byName = async (userId, name) => {
     return list[0].id;
 }
 
+const byId = async (listId) => {
+    return await List.findByPk(listId)
+  }
+
 const all = async userId => {
     const list = await List.findAll({
         where: { userId },
@@ -26,12 +30,12 @@ const all = async userId => {
     return list
 }
 
-const byId = async id => {
-    const list = await List.findAll({
-        where: { id }
-    })
-    return list[0];
-}
+// const byId = async id => {
+//     const list = await List.findAll({
+//         where: { id }
+//     })
+//     return list[0];
+// }
 
 const create = async (userId, name) => await List.create({ userId, name });
 

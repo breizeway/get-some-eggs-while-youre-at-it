@@ -1,4 +1,8 @@
 extends layout
+mixin formBody(list)
+  input(type='hidden' name='listId' value= list.id)
+  button(class='left-container__hidden-wrapper')
+    i(class='fa fa-trash')
 
 mixin selected(list, selectedListId)
   if list.id == selectedListId
@@ -36,18 +40,23 @@ block content
           div.left-container__list-row-container
             each list in lists
               div.left-container__list-row
-                //- a(id=list.listId href=list.href)= list.name
                 +selected(list, selectedListId)
-                div.left-container__delete-button-div
-                  div.left-container__delete-icon
+                div.left-container__delete-button-div: div.left-container__delete-icon
+                  if currentList
                     form(action='/lists' method='post' class='left-container__hidden-form')
-                      input(type='hidden' name='listId' value=list.id)
-                      button(class='left-container__hidden-wrapper')
-                        i(id=list.deleteHtmlId class='fa fa-trash')
+                      +formBody(list)
+                  else
+                    form(id=list.deleteHtmlId action='/lists' method='post' class='left-container__hidden-form')
+                      +formBody(list)
           .left-container__add-list-div
             form(class='left-container__add-list-form')
               input(class='left-container__list-input' name='name' type='text' placeholder='new list...' required)
               button(type='submit' class='left-container__list-button')
                 i(class='fa fa-plus')
+    .right-container
+      .right-container__content-div
+        .right-container__name-div
+          h2.right-container__on-span On
+          h2.right-container__name-span= currentList.name
     .main-container
       block main-container

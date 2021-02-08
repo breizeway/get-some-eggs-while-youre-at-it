@@ -2,7 +2,7 @@ extends nav-lists
 
 block main-container
   .main-container__name-div
-    h2.main-container__name-span Here's what you need to get done #{user.firstName}...
+    h2.main-container__name-span= searchTitle
   .main-container__tasks
     div.main-container__tasks-list
       each task in tasks

@@ -27,6 +27,7 @@ window.addEventListener("load", (event) => {
         })
     }
 
+    // event listener to create a new task
     taskForm.addEventListener("submit", async (event) => {
         event.preventDefault()
         const formData = new FormData(taskForm)
@@ -50,7 +51,7 @@ window.addEventListener("load", (event) => {
         }
     })
 
-
+    // event listener to delete a task
     taskDiv.addEventListener('click', async event => {
         const taskId = event.target.id.split('_')[2];
         const listId = listIdEl.value
