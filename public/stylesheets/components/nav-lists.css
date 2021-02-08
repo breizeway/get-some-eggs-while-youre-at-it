@@ -234,3 +234,9 @@
   grid-area: main-container;
   background-color: var(--theme2);
 }
+
+.left-container__hidden-wrapper {
+  padding: 0;
+  background-color: var(--theme2);
+  box-shadow: none;
+}
