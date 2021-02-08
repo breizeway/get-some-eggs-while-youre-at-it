@@ -56,7 +56,6 @@ window.addEventListener('load', (event)=>{
   containerDiv.addEventListener('submit', async event => {
     if (!event.target.id) return;
     event.preventDefault();
-    console.log('am I here?')
     const listId = event.target.id.split('_')[2];
 
     try {

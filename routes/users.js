@@ -84,12 +84,10 @@ router.post(
       const user = await User.findOne({ where: { email: email } });
       const isPassword = await bcrypt.compare(password, user.password);
       if (isPassword) {
-        // log user in
-        console.log('session before login', req.session);
+
         req.session.user = { id: user.id, email: user.email };
-        console.log('session after login', req.session);
-        // redirect to index
         res.redirect('/lists');
+
       } else {
         res.render('login', { csrfToken: req.csrfToken(), errors: ['Invalid credentials, try again!'] });
       }
