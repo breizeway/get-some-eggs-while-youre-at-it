@@ -1,0 +1,14 @@
+.right-container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.right-container__content-div {
+    height: 100%;
+    width: 100%;
+}
+
+.right-container__name-div {
+    margin-top: 65px;
+}

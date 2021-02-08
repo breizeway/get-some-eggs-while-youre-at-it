@@ -2,10 +2,10 @@
 	height: 100%;
 	width: 100%;
 	display: grid;
-	grid-template: 40px auto / var(--left-container-width) 1fr;
+	grid-template: 40px auto / var(--left-container-width) 3fr 2fr;
 	grid-template-areas:
-			"navbar navbar"
-			"left-container main-container";
+			"navbar navbar navbar"
+			"left-container main-container right-container";
 }
 
 .navbar {
@@ -16,6 +16,11 @@
   grid-template: auto / var(--left-container-width) 4fr 1fr;
   grid-template-areas:
     "menu search nav";
+}
+
+.right-container {
+  grid-area: right-container;
+  background-color: var(--theme2);
 }
 
 .navbar > div,

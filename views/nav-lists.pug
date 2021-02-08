@@ -44,5 +44,10 @@ block content
               input(class='left-container__list-input' name='name' type='text' placeholder='new list...' required)
               button(type='submit' class='left-container__list-button')
                 i(class='fa fa-plus')
+    .right-container
+      .right-container__content-div
+        .right-container__name-div
+          h2.right-container__on-span On
+          h2.right-container__name-span= currentList.name
     .main-container
       block main-container
