@@ -13,7 +13,8 @@ router.get('/:id', asyncHandler(async (req, res) => {
     let lists = await listData.all(user.id)
     lists = convertListData(lists)
     const task = await taskData.byId(taskId);
-    const currentList = await listData.byId(taskId);
+    const currentList = await listData.byId(task.listId);
+    console.log(currentList)
     const notes = await noteData.allNotes(taskId)
     res.render('edit-tasks', { task, lists, notes, currentList });
 }));

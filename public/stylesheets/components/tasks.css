@@ -1,5 +1,5 @@
 .main-container__tasks {
-  animation: transitionIn 750ms;
+  animation: transitionIn 500ms;
 }
 
 @keyframes transitionIn {
