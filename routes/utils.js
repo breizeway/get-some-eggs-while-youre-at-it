@@ -32,6 +32,7 @@ const convertListData = listData => {
 const convertTaskData = taskData => {
     return taskData.map(task => ({
         htmlId: `task_${task.id}`,
+        checkboxId: `checkbox_${task.id}`,
         id: task.id,
         name: task.name,
         deleteHtmlId: `task_delete_${task.id}`,

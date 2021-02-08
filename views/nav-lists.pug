@@ -1,5 +1,12 @@
 extends layout
 
+mixin selected(list, selectedListId)
+  if list.id == selectedListId
+    a(id=list.listId href=list.href class='selected-list')= list.name
+  else
+    a(id=list.listId href=list.href class='not-selected-list')= list.name
+
+
 append head
   script(src='/javascripts/left-container.js')
 
@@ -8,8 +15,10 @@ block content
     div.navbar
       .navbar__menu-div
         div.navbar__menu-div-icon-div: i(class='fa fa-bars')
+        div.navbar__menu-div-list_div: h2(class='selected-list hidden')= listInfo.name
       .navbar__search-div
         form(action='/tasks/search'  method='post' class='navbar__search-form')
+          input(type="hidden" value=selectedListId name="listId")
           input(class='navbar__search-input' type='text' name='search' placeholder='search...' required)
           button(class='navbar__search-button' type='submit'): i(class='fa fa-search')
         .navbar__search-error
@@ -26,9 +35,15 @@ block content
           div.left-container__category-header-div: h2 Lists
           div.left-container__list-row-container
             each list in lists
-              div(id=list.htmlId).left-container__list-row
-                a(href=list.href)= list.name
-                div.left-container__delete-button-div: div.left-container__delete-icon: i(id=list.deleteHtmlId class='fa fa-trash')
+              div.left-container__list-row
+                //- a(id=list.listId href=list.href)= list.name
+                +selected(list, selectedListId)
+                div.left-container__delete-button-div
+                  div.left-container__delete-icon
+                    form(action='/lists' method='post' class='left-container__hidden-form')
+                      input(type='hidden' name='listId' value=list.id)
+                      button(class='left-container__hidden-wrapper')
+                        i(id=list.deleteHtmlId class='fa fa-trash')
           .left-container__add-list-div
             form(class='left-container__add-list-form')
               input(class='left-container__list-input' name='name' type='text' placeholder='new list...' required)

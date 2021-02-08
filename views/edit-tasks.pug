@@ -9,7 +9,7 @@ block main-container
   .edit-container__notes
     form(class='edit-container__new-note' id=`edit_${task.id}`)
       input(type='hidden' name='id' id='taskId' value=task.id)
-      textarea(id='new-note' class='edit-container__textarea' type='text' name='note' placeholder='Add a note...' required)
+      textarea(id='new-note' class='edit-container__textarea' type='text' name='note' placeholder='new note...' required)
       button(type='submit' class='edit-container__note-button'): i(class='fa fa-plus')
     div(class='edit-container__note-list')
       each note in notes

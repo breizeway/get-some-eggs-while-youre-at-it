@@ -16,6 +16,7 @@
 	--row-height: 28px;
 	--row-seperator: #e2e2e2;
 	--standard-margin: 20px;
+	--hover: linear-gradient(rgba(0, 0, 0, 0.05) 0 0);
 }
 
 * {
@@ -66,4 +67,8 @@ html {
 body {
 	height: 100%;
 	width: 100%;
+}
+
+.hidden {
+	display: none;
 }

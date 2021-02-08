@@ -50,7 +50,6 @@ router.post('/', asyncHandler( async(req, res) => {
 router.delete('/', asyncHandler(async(req, res) => {
     const user = req.session.user
     let {listId} = req.body;
-    listId = parseInt(listId)
     await destroyNotes(listId)
     await destroyTasks(listId)
     await listData.destroy(listId)

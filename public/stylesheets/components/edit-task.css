@@ -77,10 +77,10 @@
   }
 
   .edit-container__textarea {
-    border: none;
-    border-bottom: 1px solid lightgray;
-    height: var(--row-height);
-    padding: 0 0 0 10px;
+    border: 1px solid lightgray;
+    border-radius: 4px;
+    height: 100px;
+    padding: 10px;
     background-color: inherit;
     width: 90%;
   }

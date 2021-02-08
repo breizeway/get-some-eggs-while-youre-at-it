@@ -13,17 +13,22 @@ router.get('/:id', asyncHandler(async (req, res) => {
     let lists = await listData.all(user.id)
     lists = convertListData(lists)
     const task = await taskData.byId(taskId);
+    const listInfo = await listData.byId(task.listId)
+    const selectedListId = listInfo.id
     const notes = await noteData.allNotes(taskId)
-    res.render('edit-tasks', { task, lists, notes });
+    res.render('edit-tasks', { task, lists, notes, listInfo, selectedListId });
 }));
 
 router.post('/search', asyncHandler(async (req, res) => {
-    const { search } = req.body
+    const { search, listId } = req.body
+    console.log(':::LISTID::: ', listId);
+    const listInfo = await listData.byId(listId)
+    const selectedListId = listInfo.id
     const user = req.session.user
     let tasks = await taskData.searchTasks(search, user.id);
     tasks = convertTaskData(tasks);
     let lists = await listData.all(user.id)
     lists = convertListData(lists);
-    res.render('search-results', { tasks, lists });
+    res.render('search-results', { tasks, lists, listInfo, selectedListId });
 }))
 module.exports = router;
