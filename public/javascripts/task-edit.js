@@ -9,12 +9,15 @@ window.addEventListener("load", (event)=> {
     const createNote = async newNote => {
      const subContainer = document.createElement('div')
 
-     subContainer.classList.add('.edit-container__note-row')
-     subContainer.innerHTML =
-     `<div class="edit-container__note-content">${newNote.note}</div>
-      <div class="edit-container__delete-button-div">
-         <div class="edit-conatianer__edit-icon"><i class="fa fa-trash" id="${newNote.id}"></i></div>
-      </div>`
+     subContainer.classList.add('edit-container__note-row')
+     subContainer.innerHTML =`
+     <div class="edit-container__note-content">${newNote.note}
+       <div class="main-container__delete-button-div">
+         <div class="main-container__delete-icon">
+           <i id="${newNote.id}" class="fa fa-trash"></i>
+         </div>
+       </div>
+     </div>`
 
       notesContainer.appendChild(subContainer);
     }

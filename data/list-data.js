@@ -10,6 +10,10 @@ const byName = async (userId, name) => {
     return list[0].id;
 }
 
+const byId = async (listId) => {
+    return await List.findByPk(listId)
+  }
+
 const all = async userId => {
     return await List.findAll({
         where: { userId },
@@ -22,4 +26,4 @@ const create = async (userId, name) => await List.create({ userId, name });
 const destroy = async id => await List.destroy({ where: { id }});
 
 
-module.exports = { byName, all, create, destroy }
+module.exports = { byName, all, create, destroy, byId }

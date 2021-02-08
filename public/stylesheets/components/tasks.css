@@ -1,3 +1,18 @@
+.main-container__tasks {
+  animation: transitionIn 500ms;
+}
+
+@keyframes transitionIn {
+  from {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .main-container__name-div {
   margin: var(--standard-margin) 0 4px var(--standard-margin)
 }
@@ -63,4 +78,35 @@
   display: flex;
   justify-content: flex-end;
   align-items: center;
+}
+
+.main-container__new-task {
+  overflow: hidden;
+  width: 360px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.main-container__task-input {
+  border: none;
+  border-bottom: 1px solid lightgray;
+  height: var(--row-height);
+  padding: 0 0 0 10px;
+  background-color: inherit;
+  width: 90%;
+}
+
+.main-container__task-input:focus {
+  background-color: white;
+}
+
+.main-container__task-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-grow: 1;
+  background-color: inherit;
+  border: none;
+  box-shadow: none;
+  border-radius: 0;
 }

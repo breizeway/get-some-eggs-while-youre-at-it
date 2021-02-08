@@ -1,4 +1,8 @@
 extends layout
+mixin formBody(list)
+  input(type='hidden' name='listId' value= list.id)
+  button(class='left-container__hidden-wrapper')
+    i(class='fa fa-trash')
 
 append head
   script(src='/javascripts/left-container.js')
@@ -10,7 +14,7 @@ block content
         div.navbar__menu-div-icon-div: i(class='fa fa-bars')
       .navbar__search-div
         form(action='/tasks/search'  method='post' class='navbar__search-form')
-          input(class='navbar__search-input' name='search' type='text' placeholder='search...' required)
+          input(class='navbar__search-input' type='text' name='search' placeholder='search...' required)
           button(class='navbar__search-button' type='submit'): i(class='fa fa-search')
         .navbar__search-error
           ul
@@ -26,13 +30,24 @@ block content
           div.left-container__category-header-div: h2 Lists
           div.left-container__list-row-container
             each list in lists
-              div(id=list.htmlId).left-container__list-row
+              div.left-container__list-row
                 a(href=list.href)= list.name
-                div.left-container__delete-button-div: div.left-container__delete-icon: i(id=list.deleteHtmlId class='fa fa-trash')
+                div.left-container__delete-button-div: div.left-container__delete-icon
+                  if currentList
+                    form(action='/lists' method='post')
+                      +formBody(list)
+                  else
+                    form(id=list.deleteHtmlId action='/lists' method='post')
+                      +formBody(list)
           .left-container__add-list-div
             form(class='left-container__add-list-form')
               input(class='left-container__list-input' name='name' type='text' placeholder='new list...' required)
               button(type='submit' class='left-container__list-button')
                 i(class='fa fa-plus')
+    .right-container
+      .right-container__content-div
+        .right-container__name-div
+          h2.right-container__on-span On
+          h2.right-container__name-span= currentList.name
     .main-container
       block main-container

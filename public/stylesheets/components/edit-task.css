@@ -1,5 +1,24 @@
 .edit-container__notes {
-    margin: 20px 20px 20px 0;
+  animation: transitionIn 500ms;
+}
+
+@keyframes transitionIn {
+  from {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.edit-container__name-div {
+    margin: var(--standard-margin) 0 4px var(--standard-margin)
+  }
+
+  .edit-container__notes {
+    margin: 0 var(--standard-margin) 0 0;
     padding: 20px;
     background-color: white;
     border-radius: 20px;
@@ -11,59 +30,86 @@
     margin: 10px 0;
     display: flex;
     flex-direction: column;
-    width: 50%;
+    width: 100%;
   }
 
   .edit-container__note-row {
     display: flex;
     justify-content: space-between;
-    width: 50%;
-    height: 30px;
+    width: 100%;
+    height: auto;
+    min-height: 30px;
+    border-radius: 4px;
+  }
+
+  .edit-container__note-row + .edit-container__note-row {
+    border-top: 1px solid var(--row-seperator);
   }
 
   .edit-container__note-row .edit-container__note-content {
     display: flex;
     align-items: center;
+    height: auto;
     width: 100%;
     text-decoration-line: none;
+    justify-content: space-between;
+    word-break: break-word;
+    margin-top: 10px;
+    padding: 4px
   }
 
-  .edit-container__note {
-    border: 1px solid gray;
-    border-radius: 4px;
-    margin-right: 4px;
-    padding: 4px;
+  .edit-container__p {
+    margin: 0;
+    padding: 4px 4px 4px 0;
+    width: auto;
+  }
+  .edit-container__note-row:hover {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.05) 0 0);
   }
 
-  .edit-container__new-note {
-      display: flex;
-      flex-direction: column;
-      width: 50%;
-      justify-content: flex-start;
-  }
-
- .edit-container__save-button {
-     width: 10%;
-     height: 30px;
- }
-
-  .edit-container__task-name-div {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
+  .edit-container__note-row *:hover {
+    cursor: pointer;
   }
 
   .edit-container__delete-button-div {
-    height: auto;
+    height: 100%;
     display: flex;
-    justify-content: flex-end;
-    align-items: center;
-  }
-
-  .fa-trash {
-    font-size: 20px;
+    align-items: flex-end;
   }
 
   .fa-trash:hover {
     cursor: pointer;
+    color: red;
+
+  }
+
+  .edit-container__new-note {
+    overflow: hidden;
+    width: 360px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .edit-container__textarea {
+    border: none;
+    border-bottom: 1px solid lightgray;
+    height: var(--row-height);
+    padding: 0 0 0 10px;
+    background-color: inherit;
+    width: 90%;
+  }
+
+  .edit-container__textarea:focus {
+    background-color: white;
+  }
+
+  .edit-container__note-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-grow: 1;
+    background-color: inherit;
+    border: none;
+    box-shadow: none;
+    border-radius: 0;
   }

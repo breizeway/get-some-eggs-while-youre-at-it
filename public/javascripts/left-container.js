@@ -1,6 +1,7 @@
 window.addEventListener('load', (event)=>{
   const listForm = document.querySelector('.left-container__add-list-form')
   const containerDiv = document.querySelector('.left-container__list-row-container')
+  const deleteDiv = document.querySelector('.delete');
   const input = document.querySelector('.left-container__list-input')
 
   // function to re-render the lists using AJAX
@@ -17,7 +18,7 @@ window.addEventListener('load', (event)=>{
         <div class="left-container__delete-icon">
           <form action="/lists" method="post">
             <input type="hidden" name="listId" value="${list.id}">
-            <button class="left-container__hidden-wrapper"><i id="${list.deleteHtmlId}" class="fa fa-trash"></i></button>
+            <button class="left-container__hidden-wrapper"><i class="fa fa-trash"></i></button>
           </form>
         </div>
       </div>`
@@ -52,8 +53,9 @@ window.addEventListener('load', (event)=>{
   })
 
   // event listener for delete button
-  containerDiv.addEventListener('click', async event => {
+  containerDiv.addEventListener('submit', async event => {
     if (!event.target.id) return;
+    event.preventDefault();
     const listId = event.target.id.split('_')[2];
 
     try {
