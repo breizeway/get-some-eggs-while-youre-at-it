@@ -23,10 +23,21 @@ router.post('/search', asyncHandler(async (req, res) => {
     const { search } = req.body
     const user = req.session.user
     const currentList = { name: 'Search results'}
+    let  searchTitle = `Here's what you need to get done ${user.firstName}...`
+
     let tasks = await taskData.searchTasks(search, user.id);
     tasks = convertTaskData(tasks);
+
+    if (!tasks.length) {
+        searchTitle = `Sorry, no matches were found. . .`
+        tasks.push({
+            name: 'Click here to return to inbox.',
+            searchHref: '/lists'
+        })
+    }
+
     let lists = await listData.all(user.id)
     lists = convertListData(lists);
-    res.render('search-results', { tasks, lists, currentList});
+    res.render('search-results', { tasks, lists, currentList, searchTitle });
 }))
 module.exports = router;
