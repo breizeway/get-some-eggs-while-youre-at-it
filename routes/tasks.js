@@ -36,7 +36,7 @@ router.post('/search', asyncHandler(async (req, res) => {
         searchTitle = `Sorry, no matches were found. . .`
         tasks.push({
             name: 'Click here to return to inbox.',
-            searchHref: '/lists'
+            href: '/lists'
         })
     }
 
