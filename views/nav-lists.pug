@@ -1,4 +1,8 @@
 extends layout
+mixin formBody(list)
+  input(type='hidden' name='listId' value= list.id)
+  button(class='left-container__hidden-wrapper')
+    i(class='fa fa-trash')
 
 append head
   script(src='/javascripts/left-container.js')
@@ -26,12 +30,15 @@ block content
           div.left-container__category-header-div: h2 Lists
           div.left-container__list-row-container
             each list in lists
-              div(id=list.htmlId).left-container__list-row
+              div.left-container__list-row
                 a(href=list.href)= list.name
                 div.left-container__delete-button-div: div.left-container__delete-icon
-                  form(action='/lists' method='post' )
-                    input(type='hidden' name='listId' value= list.id)
-                    button(class='left-container__hidden-wrapper'): i(id=list.deleteHtmlId class='fa fa-trash')
+                  if currentList
+                    form(action='/lists' method='post')
+                      +formBody(list)
+                  else
+                    form(id=list.deleteHtmlId action='/lists' method='post')
+                      +formBody(list)
           .left-container__add-list-div
             form(class='left-container__add-list-form')
               input(class='left-container__list-input' name='name' type='text' placeholder='new list...' required)

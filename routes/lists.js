@@ -18,9 +18,18 @@ router.get('/', csrfProtection, asyncHandler( async(req, res) => {
 
 router.get('/:id', csrfProtection, asyncHandler(async(req, res) => {
     const listId = req.params.id
+    const parsedId = parseInt(listId, 10);
     const user = req.session.user
     let lists = await listData.all(user.id)
     lists = convertListData(lists)
+
+    lists.forEach(list => {
+        if (list.id === parsedId) {
+            list.currentList = true
+        } else {
+            list.currentList = false
+        } });
+
     let tasks = await taskData.byList(listId)
     tasks = convertTaskData(tasks)
     res.render('tasks', { tasks, lists, listId, csrfToken: req.csrfToken() })
