@@ -13,6 +13,10 @@
   flex-direction: column;
 }
 
+.red-placeholder::placeholder {
+  color: red;
+}
+
 .left-container__logo-div.login-signup__logo-div {
   width: 100%;
   height: 200px;

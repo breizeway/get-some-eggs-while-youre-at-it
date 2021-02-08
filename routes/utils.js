@@ -8,7 +8,11 @@ const handleValidationErrors = (req, res, next) => {
     const validationErrors = validationResult(req);
 
     if (!validationErrors.isEmpty()) {
-        const errors = validationErrors.array().map((error) => error.msg);
+        const errors = { email: null, password: null };
+        validationErrors.array().forEach(error => {
+            if (error.param === 'email') errors.email = error.msg
+            if (error.param === 'password') errors.password = error.msg
+        });
 
         const err = Error("Bad request.");
         err.errors = errors;
@@ -18,6 +22,15 @@ const handleValidationErrors = (req, res, next) => {
     }
     next();
 };
+
+const loginErrorHandler = (err, req, res, next) => {
+    if (err.errors) {
+        req.body.errors = err.errors;
+        return next();
+    } else {
+        next(err)
+    }
+}
 
 const convertListData = (listData) => {
     return listData.map(list => ({
@@ -77,5 +90,6 @@ module.exports = {
     convertListData,
     convertTaskData,
     destroyNotes,
-    destroyTasks
+    destroyTasks,
+    loginErrorHandler
  };
