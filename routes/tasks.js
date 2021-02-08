@@ -12,9 +12,19 @@ router.get('/:id', asyncHandler(async (req, res) => {
     const user = req.session.user
     let lists = await listData.all(user.id)
     lists = convertListData(lists)
+    let currentList;
+
+    lists.forEach(list => {
+        if (list.id === parsedId) {
+            list.currentList = true
+            currentList = list;
+        } else {
+            list.currentList = false
+        } });
+
     const task = await taskData.byId(taskId);
     const notes = await noteData.allNotes(taskId)
-    res.render('edit-tasks', { task, lists, notes });
+    res.render('edit-tasks', { task, lists, notes, currentList });
 }));
 
 router.post('/search', asyncHandler(async (req, res) => {
@@ -24,6 +34,16 @@ router.post('/search', asyncHandler(async (req, res) => {
     tasks = convertTaskData(tasks);
     let lists = await listData.all(user.id)
     lists = convertListData(lists);
-    res.render('search-results', { tasks, lists });
+    let currentList;
+
+    lists.forEach(list => {
+        if (list.id === parsedId) {
+            list.currentList = true
+            currentList = list;
+        } else {
+            list.currentList = false
+        } });
+
+    res.render('search-results', { tasks, lists, currentList });
 }))
 module.exports = router;
