@@ -59,7 +59,7 @@ window.addEventListener('load', (event)=>{
 
     const { listId } = event.target;
     const id = listId.value;
-    console.log(id)
+
     try {
       const res = await fetch('/api/lists', {
         method: 'DELETE',
@@ -68,7 +68,6 @@ window.addEventListener('load', (event)=>{
         },
         body: JSON.stringify({ id })
       })
-      // console.log(res)
       renderList(res)
 
     } catch (error) {
