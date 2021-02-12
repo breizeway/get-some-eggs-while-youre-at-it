@@ -48,7 +48,6 @@ router.delete('/', asyncHandler(async(req, res) => {
 
 router.delete('/note', asyncHandler(async(req, res) => {
     const { noteId, taskId } = req.body;
-    console.log(noteId, taskId)
     await noteData.destroyNote(noteId)
     const notes = await noteData.allNotes(taskId)
     res.json(notes);
