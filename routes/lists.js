@@ -22,23 +22,21 @@ router.get('/:id', csrfProtection, asyncHandler(async(req, res) => {
     const user = req.session.user
     const listInfo = await listData.byId(listId)
     let inboxId = await listData.byName(user.id, 'Inbox')
-    inboxId = parseInt(listId, 10);
+    inboxId = parseInt(inboxId, 10);
     const selectedListId = listInfo.id
     let lists = await listData.all(user.id)
     lists = convertListData(lists)
     let currentList;
+
 
     lists.forEach(list => {
         if (list.id === inboxId) list.inbox = true
         if (list.id === listId) {
             list.currentList = true
             currentList = list;
-        } else {
-            list.currentList = false
-            list.inbox = false
-        } });
+        }
+    });
 
-        // console.log(lists, 'here!!!!!!!!!!!!!!!!!!!!')
     let tasks = await taskData.byList(listId)
     tasks = convertTaskData(tasks)
     res.render('tasks', { tasks, lists, listId, listInfo, selectedListId, csrfToken: req.csrfToken(), currentList })
