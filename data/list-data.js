@@ -7,6 +7,7 @@ const byName = async (userId, name) => {
             name
         }
     })
+    console.log(list, 'here!!!!!!!!!!!!!!!!!!!!!')
     return list[0].id;
 }
 

@@ -49,10 +49,12 @@ router.post('/', asyncHandler( async(req, res) => {
 
 router.delete('/', asyncHandler(async(req, res) => {
     const user = req.session.user
-    let {listId} = req.body;
+    let listId = req.body.id
+
     await destroyNotes(listId)
     await destroyTasks(listId)
     await listData.destroy(listId)
+
     let lists = await listData.all(user.id)
     lists = convertListData(lists)
     res.json(lists);

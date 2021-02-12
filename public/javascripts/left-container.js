@@ -56,17 +56,19 @@ window.addEventListener('load', (event)=>{
   containerDiv.addEventListener('submit', async event => {
     if (!event.target.id) return;
     event.preventDefault();
-    const listId = event.target.id.split('_')[2];
 
+    const { listId } = event.target;
+    const id = listId.value;
+    console.log(id)
     try {
       const res = await fetch('/api/lists', {
         method: 'DELETE',
         headers: {
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ listId })
+        body: JSON.stringify({ id })
       })
-
+      // console.log(res)
       renderList(res)
 
     } catch (error) {

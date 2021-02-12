@@ -45,6 +45,9 @@ block content
                   if list.currentList
                     form(action='/lists' method='post' class='left-container__hidden-form')
                       +formBody(list)
+                  else if list.inbox
+                    form(action='/lists' method='post' class='left-container__hidden-form')
+                      +formBody(list)
                   else
                     form(id=list.deleteHtmlId action='/lists' method='post' class='left-container__hidden-form')
                       +formBody(list)
